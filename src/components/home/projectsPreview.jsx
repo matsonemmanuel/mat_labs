@@ -7,7 +7,7 @@ const projects = [
       'An AI-powered agricultural platform designed to help farmers access useful farming information, market insights and technology-driven agricultural support.',
     tags: ['AI', 'Web Platform', 'Agritech'],
     symbol: '◈',
-    image: '/images/projects/educore.png',
+    image: '/images/projects/shamba.png',
   },
   {
     number: '02',
@@ -37,7 +37,7 @@ const projects = [
       'Purpose-built mobile applications designed around user needs, accessibility, performance and practical real-world use cases.',
     tags: ['Mobile', 'UI/UX', 'Development'],
     symbol: '▣',
-    image: '/images/projects/shamba.png',
+    image: '/images/projects/educore.png',
   },
 ]
 
