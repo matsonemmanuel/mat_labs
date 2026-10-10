@@ -1,0 +1,644 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mat-navy: #071A2B;
+  --color-mat-deep: #03111F;
+  --color-mat-blue: #0B5ED7;
+  --color-mat-gold: #F4B942;
+  --color-mat-gold-dark: #C98A12;
+
+  --color-mat-white: #FFFFFF;
+  --color-mat-light: #F7F9FC;
+  --color-mat-text: #0B172A;
+  --color-mat-muted: #64748B;
+
+  --font-heading: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+:root {
+  font-family: var(--font-body);
+  color: var(--color-mat-text);
+  background: var(--color-mat-light);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--color-mat-gold);
+  color: var(--color-mat-deep);
+}
+
+/* ============================================================
+   MAT LABS NAVBAR
+============================================================ */
+
+.mat-navbar {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  height: 60px;
+  background: #03111f;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mat-navbar-inner {
+  width: min(1400px, 100%);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ============================================================
+   LOGO
+============================================================ */
+
+.mat-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: white;
+  text-decoration: none;
+
+  flex-shrink: 0;
+}
+
+.mat-logo-mark {
+  position: relative;
+
+  width: 43px;
+  height: 40px;
+
+  display: block;
+}
+
+.mat-logo-gold {
+  position: absolute;
+
+  width: 18px;
+  height: 30px;
+
+  left: 8px;
+  top: 1px;
+
+  background: #f4b942;
+
+  clip-path: polygon(
+    0 0,
+    100% 22%,
+    100% 100%,
+    0 75%
+  );
+
+  transform: rotate(12deg);
+}
+
+.mat-logo-blue {
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+
+  left: 2px;
+  bottom: 3px;
+
+  background: #0b5ed7;
+
+  clip-path: polygon(
+    30% 0,
+    100% 30%,
+    70% 100%,
+    0 65%
+  );
+
+  transform: rotate(8deg);
+}
+
+.mat-logo-text {
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.mat-logo-mat {
+  color: #ffffff;
+}
+
+.mat-logo-labs {
+  color: #f4b942;
+}
+
+
+/* ============================================================
+   DESKTOP NAV
+============================================================ */
+
+.mat-desktop-nav {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.mat-nav-link {
+  position: relative;
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 11px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease;
+}
+
+.mat-nav-link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  width: 0;
+  height: 2px;
+
+  background: #f4b942;
+
+  transform: translateX(-50%);
+
+  transition:
+    width 0.2s ease;
+}
+
+.mat-nav-link:hover {
+  color: #f4b942;
+}
+
+.mat-nav-link:hover::after {
+  width: 70%;
+}
+
+.mat-nav-link.mat-nav-active {
+  color: #f4b942;
+}
+
+.mat-nav-link.mat-nav-active::after {
+  width: 70%;
+}
+
+
+/* ============================================================
+   QUOTE BUTTON
+============================================================ */
+
+.mat-nav-quote {
+  height: 36px;
+
+  padding: 0 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border-radius: 6px;
+
+  background: #f4b942;
+  color: #03111f;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.mat-nav-quote:hover {
+  transform: translateY(-1px);
+  background: #ffc957;
+}
+
+.mat-arrow {
+  font-size: 16px;
+  line-height: 1;
+}
+
+
+/* ============================================================
+   MOBILE TOGGLE
+============================================================ */
+
+.mat-mobile-toggle {
+  position: relative;
+
+  width: 60px;
+  height: 48px;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.hamburger-line {
+  position: absolute;
+
+  width: 28px;
+  height: 2px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.hamburger-line-one {
+  transform: translateY(-5px);
+}
+
+.hamburger-line-two {
+  transform: translateY(5px);
+}
+
+.hamburger-gold-line {
+  position: absolute;
+
+  width: 17px;
+  height: 2px;
+
+  right: 11px;
+  bottom: 9px;
+
+  background: #f4b942;
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+/* ============================================================
+   OPEN HAMBURGER
+============================================================ */
+
+.mat-mobile-toggle-open .hamburger-line-one {
+  transform: rotate(45deg);
+}
+
+.mat-mobile-toggle-open .hamburger-line-two {
+  transform: rotate(-45deg);
+}
+
+.mat-mobile-toggle-open .hamburger-gold-line {
+  transform: rotate(90deg);
+}
+
+
+/* ============================================================
+   MOBILE MENU
+============================================================ */
+
+.mat-mobile-menu {
+  position: fixed;
+
+  z-index: 999;
+
+  top: 60px;
+  left: 0;
+  right: 0;
+
+  background: #03111f;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.mat-mobile-menu-inner {
+  padding: 12px 20px 22px;
+}
+
+.mat-mobile-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-mobile-nav-link {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  animation: mobileMenuItem 0.25s ease both;
+}
+
+.mat-mobile-nav-link:hover {
+  color: #f4b942;
+}
+
+.mat-mobile-arrow {
+  color: #f4b942;
+  font-size: 17px;
+}
+
+.mat-mobile-quote {
+  height: 44px;
+
+  margin-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 6px;
+
+  background: #f4b942;
+  color: #03111f;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+@keyframes mobileMenuItem {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+   NAV MOBILE BREAKPOINT
+============================================================ */
+
+@media (max-width: 900px) {
+
+  .mat-navbar {
+    height: 60px;
+  }
+
+  .mat-navbar-inner {
+    padding: 0 18px;
+  }
+
+  .mat-desktop-nav,
+  .mat-nav-quote {
+    display: none;
+  }
+
+  .mat-mobile-toggle {
+    display: flex;
+  }
+
+  .mat-logo-text {
+    font-size: 22px;
+  }
+
+  .mat-logo-mark {
+    transform: scale(0.9);
+    transform-origin: left center;
+  }
+
+  .mat-mobile-menu {
+    top: 60px;
+  }
+}
+
+/* ============================================================
+   MAT LABS — GET A QUOTE
+============================================================ */
+
+.quote-input {
+  width: 100%;
+  min-height: 42px;
+
+  border: 1px solid #dce2e9;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  padding: 10px 12px;
+
+  color: #0b172a;
+
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.quote-input::placeholder {
+  color: #9aa4b2;
+}
+
+.quote-input:hover {
+  border-color: #c9d1dc;
+}
+
+.quote-input:focus {
+  border-color: #f4b942;
+
+  box-shadow:
+    0 0 0 3px rgba(244, 185, 66, 0.12);
+}
+
+textarea.quote-input {
+  min-height: 100px;
+}
+
+
+/* ============================================================
+   QUOTE BUTTONS
+============================================================ */
+
+.quote-primary-button {
+  min-height: 43px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: #f4b942;
+  color: #03111f;
+
+  padding: 0 19px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.quote-primary-button:hover {
+  background: #ffc957;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 18px rgba(244, 185, 66, 0.22);
+}
+
+
+.quote-secondary-button {
+  min-height: 40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d8dee7;
+  border-radius: 7px;
+
+  background: white;
+
+  color: #0b172a;
+
+  padding: 0 17px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.quote-secondary-button:hover {
+  border-color: #f4b942;
+  background: #fffaf0;
+}
+
+
+.quote-save-button {
+  min-height: 40px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid #d8dee7;
+  border-radius: 7px;
+
+  background: white;
+
+  color: #0b172a;
+
+  padding: 0 15px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.quote-save-button:hover {
+  border-color: #f4b942;
+  background: #fffaf0;
+}
+
+
+/* ============================================================
+   GET QUOTE MOBILE
+============================================================ */
+
+@media (max-width: 768px) {
+
+  .quote-primary-button,
+  .quote-save-button,
+  .quote-secondary-button {
+    width: 100%;
+  }
+
+}
