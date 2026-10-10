@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import MobileMenu from './MobileMenu.jsx'
 
@@ -16,24 +17,13 @@ function Navbar() {
 
   const currentPath = window.location.pathname
 
-  /* ==================================================
-     ACTIVE NAVIGATION
-  ================================================== */
-
   const isActive = (href) => {
     if (href === '/') {
       return currentPath === '/'
     }
 
-    return (
-      currentPath === href ||
-      currentPath.startsWith(`${href}/`)
-    )
+    return currentPath === href || currentPath.startsWith(`${href}/`)
   }
-
-  /* ==================================================
-     CLOSE MOBILE MENU
-  ================================================== */
 
   const closeMenu = () => {
     setMenuOpen(false)
@@ -41,17 +31,16 @@ function Navbar() {
 
   return (
     <>
-      {/* ==================================================
-          NAVBAR
-      ================================================== */}
-
-      <header className="mat-navbar">
+      <header
+        className="mat-navbar"
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 9999,
+          width: '100%',
+        }}
+      >
         <div className="mat-navbar-inner">
-
-          {/* ==================================================
-              LOGO
-          ================================================== */}
-
           <a
             href="/"
             className="mat-logo"
@@ -65,23 +54,13 @@ function Navbar() {
             />
           </a>
 
-
-          {/* ==================================================
-              DESKTOP NAVIGATION
-          ================================================== */}
-
-          <nav
-            className="mat-desktop-nav"
-            aria-label="Main navigation"
-          >
+          <nav className="mat-desktop-nav" aria-label="Main navigation">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 className={`mat-nav-link ${
-                  isActive(link.href)
-                    ? 'mat-nav-active'
-                    : ''
+                  isActive(link.href) ? 'mat-nav-active' : ''
                 }`}
                 onClick={closeMenu}
               >
@@ -90,72 +69,33 @@ function Navbar() {
             ))}
           </nav>
 
-
-          {/* ==================================================
-              DESKTOP GET A QUOTE
-          ================================================== */}
-
           <a
-            href="/GetQuote"
+            href="/quote"
             className="mat-nav-quote"
             onClick={closeMenu}
           >
             <span>Get a Quote</span>
-
-            <span
-              className="mat-arrow"
-              aria-hidden="true"
-            >
+            <span className="mat-arrow" aria-hidden="true">
               →
             </span>
           </a>
 
-
-          {/* ==================================================
-              MOBILE HAMBURGER
-          ================================================== */}
-
           <button
             type="button"
             className={`mat-mobile-toggle ${
-              menuOpen
-                ? 'mat-mobile-toggle-open'
-                : ''
+              menuOpen ? 'mat-mobile-toggle-open' : ''
             }`}
-            onClick={() =>
-              setMenuOpen((current) => !current)
-            }
-            aria-label={
-              menuOpen
-                ? 'Close navigation menu'
-                : 'Open navigation menu'
-            }
+            onClick={() => setMenuOpen((current) => !current)}
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
           >
-            <span
-              className="hamburger-line hamburger-line-one"
-            />
-
-            <span
-              className="hamburger-line hamburger-line-two"
-            />
-
-            <span
-              className="hamburger-gold-line"
-            />
+            <span className="hamburger-line hamburger-line-one" />
+            <span className="hamburger-line hamburger-line-two" />
+            <span className="hamburger-gold-line" />
           </button>
-
         </div>
       </header>
-
-
-      {/* ======================================================
-          MOBILE MENU
-
-          IMPORTANT:
-          Only render this when the hamburger is open.
-      ====================================================== */}
 
       {menuOpen && (
         <MobileMenu
