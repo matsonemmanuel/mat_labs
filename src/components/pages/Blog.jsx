@@ -458,6 +458,57 @@ function Blog() {
 
   const [activeCategory, setActiveCategory] = useState('All Articles')
 
+  
+  const [email, setEmail] = useState('')
+  const [isSubscribing, setIsSubscribing] = useState(false)
+  const [subscriptionStatus, setSubscriptionStatus] = useState({
+    type: '',
+    message: '',
+  })
+
+  
+  const handleSubscribe = async (e) => {
+    e.preventDefault()
+
+    if (isSubscribing) return
+
+    setIsSubscribing(true)
+    setSubscriptionStatus({ type: '', message: '' })
+
+    try {
+      const response = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email.trim() }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Subscription failed. Please try again.')
+      }
+
+      setSubscriptionStatus({
+        type: 'success',
+        message: data.message || 'You have subscribed successfully!',
+      })
+
+      setEmail('')
+    } catch (error) {
+      setSubscriptionStatus({
+        type: 'error',
+        message:
+          error.message || 'Something went wrong. Please try again.',
+      })
+    } finally {
+      setIsSubscribing(false)
+    }
+  }
+
+
+
 
   const popularArticles = articles.filter(
     (article) =>
@@ -1074,50 +1125,53 @@ function Blog() {
             </div>
 
 
-            {/* FORM */}
+            
+          {/* FORM */}
+          <form onSubmit={handleSubscribe} className="min-w-0">
+            <div className="flex overflow-hidden rounded-md bg-white">
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                maxLength={254}
+                autoComplete="email"
+                placeholder="Enter your email address"
+                aria-label="Email address for Mat Labs Insights"
+                disabled={isSubscribing}
+                className="min-w-0 flex-1 bg-transparent px-4 py-3 text-[10px] text-mat-text outline-none placeholder:text-slate-400 disabled:opacity-60"
+              />
 
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="space-y-3"
-            >
-              <div className="relative overflow-hidden rounded-lg bg-white">
-                <iframe
-                  title="Mat Labs newsletter subscription"
-                  src="https://743eae57.sibforms.com/v2/serve/MUIFALqDbyruPO6ASx567RiSmqs1xZKkNXUK3nhlgcFZ_f8hd-mX8hxzHjZH7zh9wTUSwdn7WYb0SCciEBqhzpTCvvR2d3Defun0dfXt_wxXLy1irI6WtAMrZbnrBr3m9XwFCfGsSXVxS1VamZwuPD2ysZiLBZr0FzEjM1V2MB9pB-MlEYJ_cCxfTwgog1M2abyG-mLPoq_OiasARQ=="
-                  width="100%"
-                  height="360"
-                  frameBorder="0"
-                  scrolling="auto"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    maxWidth: "100%",
-                    border: "0",
-                  }}
-                />
-              </div>
+              <button
+                type="submit"
+                disabled={isSubscribing}
+                className="flex shrink-0 items-center gap-2 bg-mat-gold px-5 py-3 text-[9px] font-bold text-mat-deep transition-colors hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSubscribing ? 'Subscribing...' : 'Subscribe'}
+                {!isSubscribing && <ArrowRightIcon />}
+              </button>
+            </div>
 
-              <div className="flex overflow-hidden rounded-md bg-white">
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email address"
-                  className="min-w-0 flex-1 bg-transparent px-4 py-3 text-[10px] text-mat-text outline-none placeholder:text-slate-400"
-                />
-
-                <button
-                  type="submit"
-                  className="flex shrink-0 items-center gap-2 bg-mat-gold px-5 py-3 text-[9px] font-bold text-mat-deep transition-colors hover:bg-amber-300"
-                >
-                  Subscribe
-                  <ArrowRightIcon />
-                </button>
-              </div>
-
-              <p className="mt-2 text-[8px] text-white/40">
-                No spam. Only valuable content.
+            {subscriptionStatus.message && (
+              <p
+                role="status"
+                aria-live="polite"
+                className={`mt-2 text-[10px] ${
+                  subscriptionStatus.type === 'success'
+                    ? 'text-emerald-300'
+                    : 'text-red-300'
+                }`}
+              >
+                {subscriptionStatus.message}
               </p>
-            </form>
+            )}
+
+            <p className="mt-2 text-[8px] text-white/60">
+              Receive Mat Labs Insights by email. Unsubscribe anytime.
+            </p>
+          </form>
+
 
           </div>
 
