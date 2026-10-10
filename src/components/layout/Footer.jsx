@@ -301,7 +301,7 @@ const companyLinks = [
                       </p>
 
                       <p className="text-sm text-white/55 transition-colors duration-300 group-hover:text-white">
-                        hello@matlabs.ug
+                        info@matlbs.com
                       </p>
                     </div>
 
