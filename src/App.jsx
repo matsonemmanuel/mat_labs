@@ -1,8 +1,5 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router'
+
+import { Routes, Route } from 'react-router'
 
 import Navbar from './components/layout/Navbar.jsx'
 import Footer from './components/layout/Footer.jsx'
@@ -23,126 +20,45 @@ import Team from './components/pages/Team.jsx'
 import Blog from './components/pages/Blog.jsx'
 import Contact from './components/pages/Contact.jsx'
 import GetQuote from './components/pages/GetQuote.jsx'
-
 import PrivacyPolicy from './components/pages/PrivacyPolicy.jsx'
 import TermsOfService from './components/pages/TermsOfService.jsx'
 
-
-
-function HomePage() {
+export function HomePage() {
   return (
     <>
       <Hero />
-
       <ServicesPreview />
-
       <AboutPreview />
-
       <Process />
-
       <ProjectsPreview />
-
       <Partners />
-
       <Testimonials />
-
       <BlogPreview />
     </>
   )
 }
 
-
 function App() {
   return (
-    <BrowserRouter>
+    <div className="min-h-screen bg-mat-deep">
+      <Navbar />
 
-      <div className="min-h-screen bg-mat-deep">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/get-quote" element={<GetQuote />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+      </Routes>
 
-        {/* GLOBAL NAVBAR */}
-        <Navbar />
-
-
-        {/* PAGE ROUTES */}
-        <Routes>
-
-          {/* HOME */}
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
-
-
-          {/* ABOUT */}
-          <Route
-            path="/about"
-            element={<AboutUs />}
-          />
-
-
-          {/* SERVICES */}
-          <Route
-            path="/services"
-            element={<Services />}
-          />
-
-
-          {/* OUR WORK */}
-          <Route
-            path="/work"
-            element={<Work />}
-          />
-
-
-          {/* OUR TEAM */}
-          <Route
-            path="/team"
-            element={<Team />}
-          />
-
-
-          {/* BLOG */}
-          <Route
-            path="/blog"
-            element={<Blog />}
-          />
-
-
-          {/* CONTACT */}
-          <Route
-            path="/contact"
-            element={<Contact />}
-          />
-
-
-          {/* GET A QUOTE */}
-          <Route
-            path="/get-quote"
-            element={<GetQuote />}
-          />
-
-          {/* PRIVACY POLICY */}
-          <Route
-            path="/privacy-policy"
-            element={<PrivacyPolicy />}
-          />
-
-          {/* TERMS OF SERVICE */}
-          <Route
-            path="/terms-of-service"
-            element={<TermsOfService />}
-          />
-
-        </Routes>
-
-
-        {/* GLOBAL FOOTER */}
-        <Footer />
-
-      </div>
-
-    </BrowserRouter>
+      <Footer />
+    </div>
   )
 }
-
 
 export default App
