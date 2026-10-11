@@ -3,6 +3,7 @@
 // SIMPLE INLINE SVG ICONS
 // No external icon library required
 // ============================================================
+import { Link } from 'react-router'
 
 function TargetIcon() {
   return (
@@ -1122,16 +1123,15 @@ function AboutUs() {
           </div>
 
 
-          <a
-            href="/contact"
-            className="group inline-flex shrink-0 items-center gap-3 rounded-md bg-mat-gold px-7 py-3.5 text-[10px] font-bold uppercase tracking-[0.12em] text-mat-deep transition-all duration-300 hover:bg-white"
-          >
+          
+        <Link
+          to="/get-quote"
+          className="group inline-flex shrink-0 items-center gap-3 rounded-md bg-mat-gold px-7 py-3.5 text-[10px] font-bold uppercase tracking-[0.12em] text-mat-deep transition-all duration-300 hover:bg-white"
+        >
+          Get a Quote
+          <ArrowRightIcon />
+        </Link>
 
-            Get a Quote
-
-            <ArrowRightIcon />
-
-          </a>
 
         </div>
 

@@ -1,4 +1,5 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { Link } from 'react-router'
 
 function Hero() {
   return (
@@ -53,17 +54,19 @@ function Hero() {
 
                 {/* CTA Buttons */}
                 <div className="mt-7 flex flex-wrap items-center gap-3">
-                  <a
-                    href="/get-quote"
-                    className="group inline-flex items-center gap-2 rounded-md bg-mat-gold px-5 py-3 text-[11px] font-bold text-mat-deep transition-all duration-300 hover:bg-[#ffc95d] hover:shadow-[0_10px_35px_rgba(244,185,66,0.22)]"
-                  >
-                    Get a Quote
-                    <ArrowUpRight
-                      size={14}
-                      strokeWidth={2.5}
-                      className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    />
-                  </a>
+                  
+                <Link
+                  to="/get-quote"
+                  className="group inline-flex items-center gap-2 rounded-md bg-mat-gold px-5 py-3 text-[11px] font-bold text-mat-deep transition-all duration-300 hover:bg-[#ffc95d] hover:shadow-[0_10px_35px_rgba(244,185,66,0.22)]"
+                >
+                  Get a Quote
+                  <ArrowUpRight
+                    size={14}
+                    strokeWidth={2.5}
+                    className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </Link>
+
 
                   <a
                     href="/services"

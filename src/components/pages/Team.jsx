@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
  
 // ============================================================
 // INLINE SVG ICONS
@@ -1037,13 +1038,15 @@ function Team() {
 
           <div className="flex flex-wrap gap-3">
 
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-3 rounded-md bg-mat-gold px-6 py-3 text-[10px] font-bold text-mat-deep transition-all duration-300 hover:bg-white"
-            >
-              Get a Quote
-              <ArrowRightIcon />
-            </a>
+            
+          <Link
+            to="/get-quote"
+            className="inline-flex items-center gap-3 rounded-md bg-mat-gold px-6 py-3 text-[10px] font-bold text-mat-deep transition-all duration-300 hover:bg-white"
+          >
+            Get a Quote
+            <ArrowRightIcon />
+          </Link>
+
 
 
             <a

@@ -1208,3 +1208,347 @@
   }
 
 }
+
+
+/* =========================================================
+   RESPONSIVE FIXES — GET A QUOTE
+   Preserve existing Mat Labs design
+========================================================= */
+
+/* Prevent child elements from expanding beyond their containers */
+.quote-page,
+.quote-page * {
+  box-sizing: border-box;
+}
+
+.quote-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.quote-hero-content,
+.quote-layout,
+.quote-process-inner {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.quote-form-card,
+.quote-sidebar,
+.quote-sidebar > *,
+.quote-form-grid > *,
+.quote-field {
+  min-width: 0;
+}
+
+.quote-field input,
+.quote-field textarea,
+.quote-field select,
+.quote-phone-wrapper,
+.quote-phone-wrapper input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Keep the desktop layout balanced */
+@media (min-width: 1101px) {
+  .quote-layout {
+    grid-template-columns: minmax(0, 2fr) minmax(300px, 0.95fr);
+    gap: 24px;
+  }
+
+  .quote-form-card {
+    min-width: 0;
+  }
+}
+
+/* Tablets and smaller laptops */
+@media (max-width: 1100px) {
+  .quote-hero-content {
+    width: calc(100% - 48px);
+  }
+
+  .quote-layout {
+    width: calc(100% - 40px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .quote-sidebar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quote-sidebar-main {
+    grid-column: 1 / -1;
+  }
+
+  .quote-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quote-process-inner {
+    width: calc(100% - 48px);
+  }
+}
+
+/* Phones and small tablets */
+@media (max-width: 768px) {
+  .quote-hero {
+    min-height: 0;
+    background-position: center;
+  }
+
+  .quote-hero-content {
+    width: calc(100% - 36px);
+  }
+
+  .quote-hero-copy {
+    width: 100%;
+    max-width: 100%;
+    padding: 38px 0 34px;
+  }
+
+  .quote-hero h1 {
+    max-width: 100%;
+    font-size: clamp(30px, 6.5vw, 42px);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .quote-hero-description {
+    max-width: 100%;
+    font-size: 14px;
+    overflow-wrap: break-word;
+  }
+
+  .quote-main {
+    padding: 18px 0;
+  }
+
+  .quote-layout {
+    width: calc(100% - 28px);
+    gap: 18px;
+  }
+
+  .quote-form-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  /* Keep all four progress steps accessible */
+  .quote-progress {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 2px 12px;
+  }
+
+  .quote-progress-step {
+    flex: 0 0 auto;
+    min-width: 48px;
+    gap: 8px;
+  }
+
+  .quote-progress-line {
+    flex: 0 0 18px;
+    width: 18px;
+    margin-top: 17px;
+  }
+
+  .quote-progress-step strong {
+    font-size: 11px;
+  }
+
+  .quote-progress-step span {
+    display: none;
+  }
+
+  .quote-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .quote-form-heading {
+    gap: 12px;
+  }
+
+  .quote-form-heading h2 {
+    font-size: 20px;
+    overflow-wrap: break-word;
+  }
+
+  .quote-field label {
+    overflow-wrap: break-word;
+  }
+
+  .quote-field input,
+  .quote-field select,
+  .quote-field textarea {
+    font-size: 16px;
+  }
+
+  .quote-radio-group {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .quote-form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .quote-save-button,
+  .quote-next-button {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  .quote-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .quote-sidebar-main {
+    padding: 22px 18px;
+  }
+
+  .quote-benefits {
+    padding: 12px 16px;
+  }
+
+  .quote-help-card {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+
+  .quote-process-inner {
+    width: calc(100% - 36px);
+    padding: 32px 0;
+  }
+
+  .quote-process-heading h2 {
+    font-size: clamp(24px, 5vw, 30px);
+  }
+
+  .quote-process-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+
+  .quote-process-arrow {
+    display: none;
+  }
+}
+
+/* Narrow phones */
+@media (max-width: 480px) {
+  .quote-hero-content {
+    width: calc(100% - 32px);
+  }
+
+  .quote-hero-copy {
+    padding: 32px 0;
+  }
+
+  .quote-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.24em;
+  }
+
+  .quote-hero h1 {
+    font-size: clamp(28px, 8vw, 35px);
+    letter-spacing: -0.04em;
+  }
+
+  .quote-hero h1 br {
+    display: none;
+  }
+
+  .quote-hero-description {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .quote-layout {
+    width: calc(100% - 20px);
+  }
+
+  .quote-form-card {
+    padding: 18px 12px;
+  }
+
+  .quote-progress {
+    gap: 7px;
+  }
+
+  .quote-progress-step {
+    min-width: 42px;
+  }
+
+  .quote-progress-line {
+    flex-basis: 12px;
+    width: 12px;
+  }
+
+  .quote-step-number {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .quote-progress-step strong {
+    font-size: 10px;
+  }
+
+  .quote-process-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .quote-process-inner {
+    width: calc(100% - 32px);
+  }
+
+  .quote-sidebar-main h3 {
+    font-size: 16px;
+  }
+
+  .quote-help-card {
+    align-items: flex-start;
+  }
+}
+
+/* Very narrow screens */
+@media (max-width: 360px) {
+  .quote-hero h1 {
+    font-size: 28px;
+  }
+
+  .quote-form-card {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .quote-progress {
+    gap: 5px;
+  }
+
+  .quote-progress-line {
+    flex-basis: 8px;
+    width: 8px;
+  }
+
+  .quote-country {
+    width: 52px;
+    flex-basis: 52px;
+  }
+}

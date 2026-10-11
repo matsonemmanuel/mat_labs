@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
+import { ArrowRight as ArrowRightIcon } from 'lucide-react'
+
 
 import './Contact.css'
 
@@ -803,13 +806,15 @@ function Contact() {
               or a full digital transformation — we’re ready to help.
             </p>
 
-            <a
-              href="#contact-form"
-              className="cta-button"
+            
+            <Link
+              to="/get-quote"
+              className="inline-flex items-center gap-3 rounded-md bg-mat-gold px-6 py-3 text-[10px] font-bold text-mat-deep transition-all duration-300 hover:bg-white"
             >
-              Get a Free Quote
-              <Icon type="arrow" size={16} />
-            </a>
+              Get a Quote
+              <ArrowRightIcon />
+            </Link>
+
 
           </div>
 

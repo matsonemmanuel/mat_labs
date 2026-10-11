@@ -116,7 +116,7 @@ function App() {
 
           {/* GET A QUOTE */}
           <Route
-            path="/GetQuote"
+            path="/get-quote"
             element={<GetQuote />}
           />
 

@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import MobileMenu from './MobileMenu.jsx'
+import { Link, useLocation } from 'react-router'
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -15,15 +16,32 @@ function Navbar() {
     { name: 'Contact', href: '/contact' },
   ]
 
-  const currentPath = window.location.pathname
+  
+  
+  const location = useLocation()
+  const currentPath = location.pathname
 
   const isActive = (href) => {
+    // No main navigation link should be active on the Quote page.
+    if (
+      currentPath === '/get-quote' ||
+      currentPath === '/GetQuote' ||
+      currentPath === '/quote'
+    ) {
+      return false
+    }
+
     if (href === '/') {
       return currentPath === '/'
     }
 
-    return currentPath === href || currentPath.startsWith(`${href}/`)
+    return (
+      currentPath === href ||
+      currentPath.startsWith(`${href}/`)
+    )
   }
+
+
 
   const closeMenu = () => {
     setMenuOpen(false)
@@ -69,8 +87,9 @@ function Navbar() {
             ))}
           </nav>
 
-          <a
-            href="/quote"
+          
+          <Link
+            to="/get-quote"
             className="mat-nav-quote"
             onClick={closeMenu}
           >
@@ -78,7 +97,8 @@ function Navbar() {
             <span className="mat-arrow" aria-hidden="true">
               →
             </span>
-          </a>
+          </Link>
+
 
           <button
             type="button"
