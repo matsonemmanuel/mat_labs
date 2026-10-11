@@ -36,7 +36,7 @@ function MobileMenu({ open, links, onClose }) {
 
 
         <a
-          href="/contact"
+          href="/get-quote"
           className="mat-mobile-quote"
           onClick={onClose}
         >
