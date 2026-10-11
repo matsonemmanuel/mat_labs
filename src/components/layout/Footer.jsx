@@ -287,7 +287,7 @@ const companyLinks = [
 
                   {/* Email */}
                   <a
-                    href="mailto:hello@matlabs.ug"
+                    href="mailto:info@matlabs.com"
                     className="group flex items-start gap-3"
                   >
 
@@ -310,7 +310,7 @@ const companyLinks = [
 
                   {/* Phone */}
                   <a
-                    href="tel:+256000000000"
+                    href="tel:+256777268968"
                     className="group flex items-start gap-3"
                   >
 

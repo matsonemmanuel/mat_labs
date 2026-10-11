@@ -681,7 +681,7 @@ function Contact() {
 
                     <strong>Phone</strong>
 
-                    <a href="tel:+256790337838">
+                    <a href="tel:+256777268968">
                       +256 777 268 968
                     </a>
 
@@ -702,11 +702,11 @@ function Contact() {
 
                     <strong>Email</strong>
 
-                    <a href="mailto:info@matlabs.co.ug">
+                    <a href="mailto:info@matlabs.com">
                       info@matlabs.com
                     </a>
 
-                    <a href="mailto:support@matlabs.co.ug">
+                    <a href="mailto:support@matlbs.com">
                       support@matlbs.com
                     </a>
 
