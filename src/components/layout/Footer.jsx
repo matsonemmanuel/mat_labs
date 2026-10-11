@@ -119,7 +119,7 @@ const companyLinks = [
 
                 {/* CTA Button */}
                 <a
-                  href="/GetQuote"
+                  href="/contact"
                   className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-mat-gold px-6 py-3.5 text-[11px] font-bold uppercase tracking-[0.14em] text-mat-deep transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_15px_40px_rgba(244,185,66,0.18)]"
                 >
                   Start a Project
