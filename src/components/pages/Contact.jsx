@@ -172,17 +172,73 @@ function Contact() {
   }
 
 
-  const handleSubmit = (event) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState({
+    type: '',
+    message: '',
+  })
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
-    console.log({
-      ...formData,
-      selectedFile,
-    })
+    setIsSubmitting(true)
+    setSubmitStatus({ type: '', message: '' })
 
-    alert(
-      'Thank you for contacting Mat Labs. Your message has been received.',
-    )
+    try {
+      const response = await fetch(
+        'https://api.web3forms.com/submit',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+            name: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            subject: `Mat Labs Inquiry: ${formData.subject}`,
+            message: formData.message,
+            botcheck: '',
+          }),
+        },
+      )
+
+      const result = await response.json()
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.message || 'Unable to send your message.',
+        )
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        message:
+          'Thank you for contacting Mat Labs! Your message has been sent successfully.',
+      })
+
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      })
+
+      setSelectedFile(null)
+      
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message:
+          error.message ||
+          'Something went wrong. Please try again.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
 
@@ -591,10 +647,25 @@ function Contact() {
                 <button
                   type="submit"
                   className="send-button"
+                  disabled={isSubmitting}
                 >
-                  Send Message
-                  <Icon type="arrow" size={17} />
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {!isSubmitting && <Icon type="arrow" size={17} />}
                 </button>
+
+                {submitStatus.message && (
+                  <p
+                    role="status"
+                    aria-live="polite"
+                    className={
+                      submitStatus.type === 'success'
+                        ? 'form-status form-status-success'
+                        : 'form-status form-status-error'
+                    }
+                  >
+                    {submitStatus.message}
+                  </p>
+                )}
 
               </form>
 

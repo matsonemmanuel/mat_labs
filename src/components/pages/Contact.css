@@ -1081,3 +1081,22 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.form-status {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.form-status-success {
+  color: #15803d;
+}
+
+.form-status-error {
+  color: #b91c1c;
+}
+
+.send-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
