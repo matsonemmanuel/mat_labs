@@ -1,5 +1,5 @@
 
-import { Routes, Route } from 'react-router'
+import { Routes, Route, Navigate } from 'react-router'
 
 import Navbar from './components/layout/Navbar.jsx'
 import Footer from './components/layout/Footer.jsx'
@@ -46,6 +46,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutUs />} />
+        <Route path="/aboutUs" element={<Navigate to="/about" replace />} />
         <Route path="/services" element={<Services />} />
         <Route path="/work" element={<Work />} />
         <Route path="/team" element={<Team />} />
