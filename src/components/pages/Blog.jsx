@@ -1656,131 +1656,122 @@ function Blog() {
       </section>
 
 
-      {/* ======================================================
-          BLOG GOALS
-      ======================================================= */}
+      
+{/* ======================================================
+    BLOG GOALS
+======================================================= */}
 
-      <section className="bg-white pb-12">
+<section className="bg-white pb-12">
 
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
+  <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
 
-          <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.35em] text-mat-text">
-            OUR BLOG GOALS
-          </p>
+    {/* SECTION INTRODUCTION */}
+    <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.35em] text-mat-text">
+      OUR PURPOSE
+    </p>
 
+    <h2 className="font-heading text-2xl font-extrabold tracking-[-0.03em] text-mat-text sm:text-3xl">
+      Knowledge. Opportunities.
+      <span className="text-mat-gold">
+        {' '}Possibilities.
+      </span>
+    </h2>
 
-          <h2 className="font-heading text-2xl font-extrabold tracking-[-0.03em] text-mat-text sm:text-3xl">
+    <p className="mt-3 max-w-[650px] text-xs leading-6 text-mat-muted">
+      Through Mat Labs Insights & Opportunities, we connect people
+      to knowledge, meaningful opportunities and ideas that support
+      personal growth, innovation and positive change.
+    </p>
 
-            Knowledge for a
-            <span className="text-mat-gold">
-              {' '}Better Digital Future
-            </span>
+    {/* GOALS GRID */}
+    <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
-          </h2>
+      {/* INFORM */}
+      <div className="flex gap-4">
 
-
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-            {/* EDUCATE */}
-
-            <div className="flex gap-4">
-
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-mat-gold text-mat-gold">
-                <BookIcon />
-              </div>
-
-
-              <div>
-
-                <h3 className="font-heading text-[11px] font-extrabold text-mat-text">
-                  Educate
-                </h3>
-
-                <p className="mt-1 text-[9px] leading-4 text-mat-muted">
-                  Share practical and actionable knowledge.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* EMPOWER */}
-
-            <div className="flex gap-4 border-l-0 border-slate-200 lg:border-l lg:pl-5">
-
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-mat-gold text-mat-gold">
-                <UsersIcon />
-              </div>
-
-
-              <div>
-
-                <h3 className="font-heading text-[11px] font-extrabold text-mat-text">
-                  Empower
-                </h3>
-
-                <p className="mt-1 text-[9px] leading-4 text-mat-muted">
-                  Help individuals and businesses grow through technology.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* INSPIRE */}
-
-            <div className="flex gap-4 border-l-0 border-slate-200 lg:border-l lg:pl-5">
-
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-mat-gold text-mat-gold">
-                <LightbulbIcon />
-              </div>
-
-
-              <div>
-
-                <h3 className="font-heading text-[11px] font-extrabold text-mat-text">
-                  Inspire
-                </h3>
-
-                <p className="mt-1 text-[9px] leading-4 text-mat-muted">
-                  Show real-world applications and success stories.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            {/* BUILD COMMUNITY */}
-
-            <div className="flex gap-4 border-l-0 border-slate-200 lg:border-l lg:pl-5">
-
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-mat-gold text-mat-gold">
-                <UsersIcon />
-              </div>
-
-
-              <div>
-
-                <h3 className="font-heading text-[11px] font-extrabold text-mat-text">
-                  Build Community
-                </h3>
-
-                <p className="mt-1 text-[9px] leading-4 text-mat-muted">
-                  Create a community of learners, innovators and problem solvers.
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-mat-gold text-mat-gold">
+          <BookIcon className="h-5 w-5" />
         </div>
 
-      </section>
+        <div>
+          <h3 className="font-heading text-[11px] font-extrabold text-mat-text">
+            Inform
+          </h3>
+
+          <p className="mt-1 text-[10px] leading-5 text-mat-muted">
+            Discover verified scholarships, fellowships, grants
+            and other opportunities worth pursuing.
+          </p>
+        </div>
+
+      </div>
+
+      {/* EDUCATE */}
+      <div className="flex gap-4 border-l-0 border-slate-200 lg:border-l lg:pl-5">
+
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-mat-gold text-mat-gold">
+          <LightbulbIcon className="h-5 w-5" />
+        </div>
+
+        <div>
+          <h3 className="font-heading text-[11px] font-extrabold text-mat-text">
+            Educate
+          </h3>
+
+          <p className="mt-1 text-[10px] leading-5 text-mat-muted">
+            Share practical knowledge, technology insights
+            and ideas that encourage continuous learning.
+          </p>
+        </div>
+
+      </div>
+
+      {/* EMPOWER */}
+      <div className="flex gap-4 border-l-0 border-slate-200 lg:border-l lg:pl-5">
+
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-mat-gold text-mat-gold">
+          <UsersIcon className="h-5 w-5" />
+        </div>
+
+        <div>
+          <h3 className="font-heading text-[11px] font-extrabold text-mat-text">
+            Empower
+          </h3>
+
+          <p className="mt-1 text-[10px] leading-5 text-mat-muted">
+            Connect individuals, students and professionals
+            with resources for growth and development.
+          </p>
+        </div>
+
+      </div>
+
+      {/* INSPIRE */}
+      <div className="flex gap-4 border-l-0 border-slate-200 lg:border-l lg:pl-5">
+
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-mat-gold text-mat-gold">
+          <LightbulbIcon className="h-5 w-5" />
+        </div>
+
+        <div>
+          <h3 className="font-heading text-[11px] font-extrabold text-mat-text">
+            Inspire
+          </h3>
+
+          <p className="mt-1 text-[10px] leading-5 text-mat-muted">
+            Highlight innovation, success stories and ideas
+            that create meaningful impact in communities.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 
     </div>
   )
