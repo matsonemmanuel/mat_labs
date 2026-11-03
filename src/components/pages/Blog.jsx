@@ -329,7 +329,7 @@ export const articles = [
   id: 1,
   title: '10 Essential Cybersecurity Practices for Small Businesses',
   category: 'Cybersecurity',
-  author: 'Kevin Tumusiime',
+  author: 'Emmanuel Matson',
   authorRole: 'Cybersecurity Contributor',
   authorBio:
     'Writes about cybersecurity awareness, digital safety and practical ways businesses can protect their technology systems.',
