@@ -533,18 +533,43 @@ function Blog() {
   const [activeCategory, setActiveCategory] = useState('All')
 
   const opportunities = [
-  {
-    id: 1,
-    title: 'Scholarship opportunity to be announced',
-    category: 'Scholarships',
-    provider: 'Provider to be confirmed',
-    location: 'To be confirmed',
-    deadline: 'To be confirmed',
-    funding: 'To be confirmed',
-    status: 'Under research',
-    description:
-      'Our editorial team is researching scholarship opportunities and will publish verified application information here.',
-  },
+  
+{
+  id: 1,
+  title: 'Mastercard Foundation Scholars Program at UC Berkeley',
+  category: 'Scholarships',
+  provider: 'University of California, Berkeley & Mastercard Foundation',
+  location: 'Berkeley, California, USA',
+  deadline: 'Varies by graduate programme',
+  funding: 'Comprehensive scholar support; confirm award details with Berkeley',
+  status: 'Check current application cycle',
+
+  description:
+    'The Mastercard Foundation Scholars Program at UC Berkeley supports academically talented African students who have experienced significant barriers to higher education and demonstrate leadership potential and a commitment to contributing to their communities. The programme supports eligible master’s degree programmes.',
+
+  eligibility:
+    'Applicants must be citizens of African countries, demonstrate academic excellence, leadership potential, financial or other barriers to higher education, and a commitment to contributing to their communities. Eligible refugees and forcibly displaced Africans are included, subject to the programme criteria.',
+
+  studyLevel: "Master's degree",
+
+  duration:
+    'Eligible master’s programmes must be two years or less.',
+
+  applicationProcess:
+    'First apply for admission to an eligible UC Berkeley master’s programme. Candidates nominated by their graduate programmes may subsequently be invited to complete a supplemental scholarship application.',
+
+  officialUrl:
+    'https://mcfscholarsprogram.berkeley.edu/',
+
+  applicationUrl:
+    'https://mcfscholarsprogram.berkeley.edu/graduate-application-process',
+
+  sourceUrl:
+    'https://mcfscholarsprogram.berkeley.edu/graduate-application-process',
+
+  lastVerified: '3 November 2026',
+},
+
   {
     id: 2,
     title: 'Fellowship opportunity to be announced',
@@ -1320,15 +1345,23 @@ function Blog() {
             </div>
 
             {/* FOOTER */}
-            <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-5">
+            <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
+
               <span className="text-[9px] font-semibold uppercase tracking-wider text-slate-400">
-                Mat Labs Research
+                Mat Labs Verified Source
               </span>
 
-              <span className="flex items-center gap-2 text-[10px] font-bold text-blue-700">
-                Details coming soon
+              <a
+                href={opportunity.applicationUrl || opportunity.officialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[10px] font-bold text-blue-700 transition-colors hover:text-mat-gold"
+              >
+                View Official Application Process
+
                 <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </span>
+              </a>
+
             </div>
           </article>
         ))}
