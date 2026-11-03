@@ -18,6 +18,7 @@ import Services from './components/pages/Services.jsx'
 import Work from './components/pages/Work.jsx'
 import Team from './components/pages/Team.jsx'
 import Blog from './components/pages/Blog.jsx'
+import InsightDetails from './components/pages/InsightDetails.jsx'
 import Contact from './components/pages/Contact.jsx'
 import GetQuote from './components/pages/GetQuote.jsx'
 import PrivacyPolicy from './components/pages/PrivacyPolicy.jsx'
@@ -51,6 +52,7 @@ function App() {
         <Route path="/work" element={<Work />} />
         <Route path="/team" element={<Team />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/insights/:id" element={<InsightDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/get-quote" element={<GetQuote />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

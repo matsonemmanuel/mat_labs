@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 
 // ============================================================
 // INLINE SVG ICONS
@@ -323,18 +324,81 @@ function BellIcon() {
 // BLOG DATA
 // ============================================================
 
-const articles = [
+export const articles = [
   {
-    id: 1,
-    title: '10 Essential Cybersecurity Practices for Small Businesses',
-    category: 'Cybersecurity',
-    author: 'Kevin Tumusiime',
-    date: 'Sep 28, 2025',
-    readTime: '5 min read',
-    image: '/images/blog/cyber.png',
-    categoryClass: 'bg-emerald-100 text-emerald-700',
-    icon: ShieldIcon,
-  },
+  id: 1,
+  title: '10 Essential Cybersecurity Practices for Small Businesses',
+  category: 'Cybersecurity',
+  author: 'Kevin Tumusiime',
+  authorRole: 'Cybersecurity Contributor',
+  authorBio:
+    'Writes about cybersecurity awareness, digital safety and practical ways businesses can protect their technology systems.',
+  authorImage: '/images/authors/kevin.jpg',
+  date: 'Sep 28, 2025',
+  readTime: '5 min read',
+  image: '/images/blog/cyber.png',
+  categoryClass: 'bg-emerald-100 text-emerald-700',
+  icon: ShieldIcon,
+
+  introduction:
+    'Cybersecurity is no longer a concern reserved for large corporations. Small businesses increasingly depend on digital systems to manage customers, payments, communication and business operations. Without appropriate security measures, a single cyber incident can disrupt operations, expose sensitive information and damage customer trust.',
+
+  takeaways: [
+    'Use strong, unique passwords and enable multi-factor authentication.',
+    'Keep operating systems, applications and devices updated.',
+    'Train employees to identify phishing and suspicious messages.',
+    'Back up important business information regularly.',
+    'Restrict access to sensitive business information.',
+  ],
+
+  content: [
+    {
+      id: 'strong-passwords',
+      heading: '1. Use Strong and Unique Passwords',
+      paragraphs: [
+        'Weak or reused passwords make it easier for attackers to access business accounts. Every important account should have a unique password that is difficult to guess.',
+        'Consider using a reputable password manager to generate and securely store passwords. Enable multi-factor authentication wherever it is available.',
+      ],
+      points: [
+        'Avoid using personal names, birthdays or predictable combinations.',
+        'Never reuse business passwords across different platforms.',
+        'Enable multi-factor authentication on email and financial accounts.',
+      ],
+    },
+    {
+      id: 'software-updates',
+      heading: '2. Keep Software and Devices Updated',
+      paragraphs: [
+        'Software updates often contain security fixes that address vulnerabilities. Delaying updates can leave business computers, applications and mobile devices exposed to known security weaknesses.',
+        'Enable automatic updates where practical and regularly check that business devices are running supported software.',
+      ],
+    },
+    {
+      id: 'employee-training',
+      heading: '3. Educate Employees About Cyber Threats',
+      paragraphs: [
+        'Employees are often the first people to encounter suspicious emails, fraudulent links and unexpected requests for information.',
+        'Regular cybersecurity awareness training helps staff recognise phishing attempts, verify unusual requests and report suspicious activity before it causes harm.',
+      ],
+    },
+    {
+      id: 'data-backups',
+      heading: '4. Back Up Important Business Data',
+      paragraphs: [
+        'Regular backups help businesses recover important information following accidental deletion, hardware failure, ransomware or other disruptive incidents.',
+        'Maintain protected backups, keep at least one copy separate from everyday business systems and periodically test whether your data can actually be restored.',
+      ],
+    },
+    {
+      id: 'access-control',
+      heading: '5. Control Access to Business Information',
+      paragraphs: [
+        'Not every employee needs access to every business system or document. Grant users only the permissions necessary to perform their responsibilities.',
+        'Review user accounts regularly and immediately remove access when employees leave or change roles.',
+      ],
+    },
+  ],
+},
 
   {
     id: 2,
@@ -410,44 +474,54 @@ const articles = [
 ]
 
 
+
 const categories = [
   {
-    name: 'All Articles',
+    name: 'All',
     icon: GridIcon,
   },
   {
-    name: 'Web Development',
-    icon: CodeIcon,
+    name: 'Scholarships',
+    icon: BookIcon,
   },
   {
-    name: 'Mobile Apps',
-    icon: MobileIcon,
+    name: 'Fellowships',
+    icon: UsersIcon,
+  },
+  {
+    name: 'Internships',
+    icon: DocumentIcon,
+  },
+  {
+    name: 'Grants & Funding',
+    icon: ChartIcon,
+  },
+  {
+    name: 'Competitions',
+    icon: LightbulbIcon,
+  },
+  {
+    name: 'Career Resources',
+    icon: DocumentIcon,
+  },
+  {
+    name: 'Technology Insights',
+    icon: CodeIcon,
   },
   {
     name: 'Cybersecurity',
     icon: ShieldIcon,
   },
   {
+    name: 'Software Development',
+    icon: MobileIcon,
+  },
+  {
     name: 'Networking',
     icon: NetworkIcon,
   },
-  {
-    name: 'Electronics & IoT',
-    icon: ChipIcon,
-  },
-  {
-    name: 'UI/UX & Design',
-    icon: DesignIcon,
-  },
-  {
-    name: 'Business & Tech',
-    icon: ChartIcon,
-  },
-  {
-    name: 'Tips & Resources',
-    icon: DocumentIcon,
-  },
 ]
+
 
 
 // ============================================================
@@ -456,7 +530,82 @@ const categories = [
 
 function Blog() {
 
-  const [activeCategory, setActiveCategory] = useState('All Articles')
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  const opportunities = [
+  {
+    id: 1,
+    title: 'Scholarship opportunity to be announced',
+    category: 'Scholarships',
+    provider: 'Provider to be confirmed',
+    location: 'To be confirmed',
+    deadline: 'To be confirmed',
+    funding: 'To be confirmed',
+    status: 'Under research',
+    description:
+      'Our editorial team is researching scholarship opportunities and will publish verified application information here.',
+  },
+  {
+    id: 2,
+    title: 'Fellowship opportunity to be announced',
+    category: 'Fellowships',
+    provider: 'Provider to be confirmed',
+    location: 'To be confirmed',
+    deadline: 'To be confirmed',
+    funding: 'To be confirmed',
+    status: 'Under research',
+    description:
+      'Discover fellowship programmes supporting leadership, professional growth and community impact.',
+  },
+  {
+    id: 3,
+    title: 'Internship opportunity to be announced',
+    category: 'Internships',
+    provider: 'Provider to be confirmed',
+    location: 'To be confirmed',
+    deadline: 'To be confirmed',
+    funding: 'To be confirmed',
+    status: 'Under research',
+    description:
+      'We are identifying internship opportunities that help young professionals gain practical experience.',
+  },
+  {
+    id: 4,
+    title: 'Grant opportunity to be announced',
+    category: 'Grants & Funding',
+    provider: 'Provider to be confirmed',
+    location: 'To be confirmed',
+    deadline: 'To be confirmed',
+    funding: 'To be confirmed',
+    status: 'Under research',
+    description:
+      'Explore upcoming funding opportunities for organisations, innovators and community initiatives.',
+  },
+  {
+    id: 5,
+    title: 'Competition opportunity to be announced',
+    category: 'Competitions',
+    provider: 'Provider to be confirmed',
+    location: 'To be confirmed',
+    deadline: 'To be confirmed',
+    funding: 'To be confirmed',
+    status: 'Under research',
+    description:
+      'We are researching competitions that recognise creativity, innovation and emerging talent.',
+  },
+  {
+    id: 6,
+    title: 'Career resource to be announced',
+    category: 'Career Resources',
+    provider: 'Mat Labs Editorial Team',
+    location: 'Online',
+    deadline: 'Not applicable',
+    funding: 'Not applicable',
+    status: 'Coming soon',
+    description:
+      'Practical career guidance, professional development resources and tools for your next career step.',
+  },
+]
 
   
   const [email, setEmail] = useState('')
@@ -521,11 +670,18 @@ function Blog() {
 
 
   const filteredArticles =
-    activeCategory === 'All Articles'
-      ? articles
-      : articles.filter(
-          (article) => article.category === activeCategory,
-        )
+  activeCategory === 'All'
+    ? articles
+    : articles.filter(
+        (article) => article.category === activeCategory
+      )
+
+  const filteredOpportunities =
+  activeCategory === 'All'
+    ? opportunities
+    : opportunities.filter(
+        (opportunity) => opportunity.category === activeCategory
+      )
 
 
   return (
@@ -536,529 +692,772 @@ function Blog() {
           HERO
       ======================================================= */}
 
-      <section className="relative overflow-hidden bg-mat-deep">
+      
+{/* ======================================================
+    INSIGHTS & OPPORTUNITIES HERO
+======================================================= */}
 
-        <div className="relative mx-auto grid min-h-[500px] max-w-[1400px] lg:grid-cols-[0.9fr_1.25fr]">
+<section className="relative overflow-hidden bg-mat-deep">
+  <div className="pointer-events-none absolute -right-32 -top-32 h-[450px] w-[450px] rounded-full border border-mat-gold/10" />
+  <div className="pointer-events-none absolute -right-20 -top-20 h-[350px] w-[350px] rounded-full border border-mat-blue/20" />
 
-          {/* LEFT */}
+  <div className="relative mx-auto grid min-h-[480px] max-w-[1400px] items-center gap-10 px-6 py-20 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-14">
 
-          <div className="relative z-20 flex flex-col justify-center px-6 pb-12 pt-24 sm:px-10 lg:px-14 lg:py-20">
+    {/* LEFT CONTENT */}
+    <div className="relative z-10">
+      <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.35em] text-mat-gold">
+        MAT LABS INSIGHTS & OPPORTUNITIES
+      </p>
 
-            <p className="mb-4 text-[9px] font-bold uppercase tracking-[0.4em] text-white">
-              OUR BLOG
-            </p>
+      <h1 className="max-w-[680px] font-heading text-[40px] font-extrabold leading-[1.05] tracking-[-0.045em] text-white sm:text-5xl lg:text-[58px]">
+        Opportunities.
+        <span className="block text-mat-gold">
+          Knowledge.
+        </span>
+        <span className="block">
+          Possibilities.
+        </span>
+      </h1>
 
+      <p className="mt-6 max-w-[570px] text-sm leading-7 text-white/70 sm:text-base">
+        Discover carefully curated scholarships, fellowships,
+        internships and funding opportunities, alongside practical
+        insights to help you learn, grow and advance in a digital world.
+      </p>
 
-            <h1 className="font-heading text-[39px] font-extrabold leading-[1.02] tracking-[-0.045em] text-white sm:text-[48px] lg:text-[52px]">
+      <div className="mt-8 flex flex-wrap gap-3">
+        <a
+          href="#opportunities"
+          className="inline-flex items-center gap-3 rounded-md bg-mat-gold px-6 py-3.5 text-[10px] font-bold text-mat-deep transition-all duration-300 hover:bg-white"
+        >
+          Explore Opportunities
+          <ArrowRightIcon />
+        </a>
 
-              Insights, Ideas and
+        <a
+          href="#insights"
+          className="inline-flex items-center gap-3 rounded-md border border-white/30 px-6 py-3.5 text-[10px] font-bold text-white transition-all duration-300 hover:border-mat-gold hover:text-mat-gold"
+        >
+          Explore Insights
+          <ArrowRightIcon />
+        </a>
+      </div>
 
-              <span className="block text-mat-gold">
-                Technology for a
-              </span>
+      {/* TRUST INDICATORS */}
+      <div className="mt-10 flex flex-wrap gap-x-7 gap-y-4 border-t border-white/10 pt-6">
+        <div>
+          <p className="text-xs font-bold text-white">
+            Carefully Curated
+          </p>
+          <p className="mt-1 text-[9px] text-white/50">
+            Research-led publishing
+          </p>
+        </div>
 
-              <span className="block text-mat-gold">
-                Better Tomorrow
-              </span>
+        <div>
+          <p className="text-xs font-bold text-white">
+            Official Sources
+          </p>
+          <p className="mt-1 text-[9px] text-white/50">
+            Direct application links
+          </p>
+        </div>
 
-            </h1>
+        <div>
+          <p className="text-xs font-bold text-white">
+            Knowledge Driven
+          </p>
+          <p className="mt-1 text-[9px] text-white/50">
+            Insights that empower
+          </p>
+        </div>
+      </div>
+    </div>
 
-
-            <p className="mt-5 max-w-[530px] text-sm leading-5 text-white/75">
-              Stay informed with expert insights, practical guides and
-              the latest trends in technology. Our blog is a place where
-              we share knowledge, experiences and solutions to help
-              individuals, businesses and communities grow in the
-              digital world.
-            </p>
-
-
-            <div className="mt-6 flex flex-wrap gap-3">
-
-              <a
-                href="#articles"
-                className="inline-flex items-center gap-3 rounded-md bg-mat-gold px-6 py-3 text-[10px] font-bold text-mat-deep transition-all duration-300 hover:bg-white"
-              >
-                Explore Articles
-                <ArrowRightIcon />
-              </a>
-
-
-              <a
-                href="#newsletter"
-                className="inline-flex items-center gap-3 rounded-md border border-mat-gold/70 px-6 py-3 text-[10px] font-bold text-white transition-all duration-300 hover:bg-mat-gold hover:text-mat-deep"
-              >
-                Subscribe
-                <BellIcon />
-              </a>
-
-            </div>
-
-
-            {/* HERO FEATURES */}
-
-            <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-4">
-
-              <div className="flex items-center gap-2.5">
-
-                <div className="text-mat-gold">
-                  <UsersIcon />
-                </div>
-
-                <div>
-                  <p className="text-[9px] font-bold text-white">
-                    Expert Insights
-                  </p>
-                  <p className="text-[7px] text-white/50">
-                    From real specialists
-                  </p>
-                </div>
-
-              </div>
-
-
-              <div className="flex items-center gap-2.5">
-
-                <div className="text-mat-gold">
-                  <GridIcon className="h-6 w-6" />
-                </div>
-
-                <div>
-                  <p className="text-[9px] font-bold text-white">
-                    Practical Guides
-                  </p>
-                  <p className="text-[7px] text-white/50">
-                    Step-by-step tutorials
-                  </p>
-                </div>
-
-              </div>
+    
 
 
-              <div className="flex items-center gap-2.5">
+{/* RIGHT VISUAL — CLEAN EDITORIAL FEATURE */}
+<div className="relative mx-auto w-full max-w-[650px] lg:max-w-none">
 
-                <div className="text-mat-gold">
-                  <ChartIcon className="h-6 w-6" />
-                </div>
+  <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#071A2B] shadow-2xl">
 
-                <div>
-                  <p className="text-[9px] font-bold text-white">
-                    Industry Trends
-                  </p>
-                  <p className="text-[7px] text-white/50">
-                    Stay ahead
-                  </p>
-                </div>
+    {/* PHOTOGRAPH */}
+    <div className="relative h-[280px] overflow-hidden sm:h-[340px] lg:h-[370px]">
+      <img
+        src="/images/bloog/blog.png"
+        alt="Mat Labs team collaborating on technology and opportunities"
+        className="h-full w-full object-cover object-center"
+      />
+    </div>
 
-              </div>
+    {/* INFORMATION PANEL */}
+    <div className="relative border-t border-white/10 px-6 py-6 sm:px-8 sm:py-7">
+
+      {/* GOLD ACCENT */}
+      <div className="absolute left-8 top-0 h-[3px] w-14 -translate-y-1/2 bg-mat-gold" />
+
+      <div className="flex items-center gap-2">
+        <span className="h-1.5 w-1.5 rounded-full bg-mat-gold" />
+        <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-mat-gold">
+          MAT LABS INSIGHTS & OPPORTUNITIES
+        </p>
+      </div>
+
+      <h2 className="mt-3 max-w-[520px] font-heading text-xl font-extrabold leading-snug text-white sm:text-2xl">
+        Your next opportunity could change your future.
+      </h2>
+
+      <p className="mt-3 max-w-[520px] text-xs leading-6 text-white/65 sm:text-sm">
+        Discover opportunities, expand your knowledge and take
+        meaningful steps towards your educational and professional goals.
+      </p>
+
+      {/* EDITORIAL FOOTER */}
+      <div className="mt-6 flex items-center justify-between gap-3 border-t border-white/10 pt-4">
+        <span className="text-[9px] font-semibold uppercase tracking-wider text-white/60">
+          Research. Verify. Inform.
+        </span>
+
+        <span className="text-[9px] font-bold uppercase tracking-wider text-mat-gold">
+          MAT LABS
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
 
-              <div className="flex items-center gap-2.5">
 
-                <div className="text-mat-gold">
-                  <BookIcon />
-                </div>
 
-                <div>
-                  <p className="text-[9px] font-bold text-white">
-                    Real Experiences
-                  </p>
-                  <p className="text-[7px] text-white/50">
-                    Lessons from our work
-                  </p>
-                </div>
+  </div>
+</section>
 
-              </div>
 
-            </div>
 
+      
+{/* ======================================================
+    OPPORTUNITY CATEGORIES
+======================================================= */}
+
+<section
+  id="opportunities"
+  className="bg-white py-16 sm:py-20"
+>
+  <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
+
+    {/* SECTION HEADER */}
+    <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+
+      <div>
+        <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.3em] text-blue-700">
+          EXPLORE WHAT MATTERS
+        </p>
+
+        <h2 className="font-heading text-3xl font-extrabold tracking-tight text-mat-text sm:text-4xl">
+          Find Your Next
+          <span className="text-mat-gold"> Opportunity</span>
+        </h2>
+
+        <p className="mt-3 max-w-[580px] text-sm leading-6 text-mat-muted">
+          Explore carefully curated opportunities across education,
+          professional development, funding and innovation.
+        </p>
+      </div>
+
+      <div className="flex items-center gap-2 text-xs font-semibold text-mat-text">
+        <span className="h-2 w-2 rounded-full bg-emerald-500" />
+        Curated by Mat Labs
+      </div>
+
+    </div>
+
+    
+{/* CATEGORY CARDS */}
+<div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+  {[
+    {
+      name: 'Scholarships',
+      description: 'Explore undergraduate, postgraduate and doctoral funding opportunities.',
+      icon: BookIcon,
+      number: '01',
+    },
+    {
+      name: 'Fellowships',
+      description: 'Discover leadership, research and professional development programmes.',
+      icon: UsersIcon,
+      number: '02',
+    },
+    {
+      name: 'Internships',
+      description: 'Find practical placements and experiences to advance your career.',
+      icon: DocumentIcon,
+      number: '03',
+    },
+    {
+      name: 'Grants & Funding',
+      description: 'Find funding for research, entrepreneurship and innovation.',
+      icon: ChartIcon,
+      number: '04',
+    },
+    {
+      name: 'Competitions',
+      description: 'Discover innovation challenges, awards and technology competitions.',
+      icon: LightbulbIcon,
+      number: '05',
+    },
+    {
+      name: 'Career Resources',
+      description: 'Access practical guidance for CVs, applications and career growth.',
+      icon: UsersIcon,
+      number: '06',
+    },
+    {
+      name: 'Technology Insights',
+      description: 'Explore software, cybersecurity, networking and emerging technologies.',
+      icon: CodeIcon,
+      number: '07',
+    },
+  ].map((category) => {
+    const Icon = category.icon
+    const active = activeCategory === category.name
+
+    return (
+      <button
+        key={category.name}
+        type="button"
+        onClick={() => {
+          if (category.name === 'Technology Insights') {
+            document.getElementById('insights')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            })
+            return
+          }
+
+          setActiveCategory(category.name)
+
+          document.getElementById('latest-opportunities')?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          })
+        }}
+        className={`group relative flex min-h-[220px] flex-col overflow-hidden rounded-xl border p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(3,17,31,0.09)] ${
+          active
+            ? 'border-mat-gold bg-mat-deep text-white'
+            : 'border-slate-200 bg-white text-mat-text hover:border-mat-gold/60'
+        }`}
+      >
+
+        {/* CARD TOP */}
+        <div className="flex items-center justify-between">
+
+          <div className={`flex h-12 w-12 items-center justify-center rounded-lg ${
+            active
+              ? 'bg-mat-gold text-mat-deep'
+              : 'bg-slate-100 text-mat-deep group-hover:bg-mat-gold/15 group-hover:text-blue-700'
+          }`}>
+            <Icon className="h-5 w-5" />
           </div>
 
-
-          {/* HERO IMAGE */}
-
-          <div className="relative min-h-[350px] overflow-hidden lg:min-h-[500px]">
-
-            <img
-              src="/images/bloog/blog.png"
-              alt="Mat Labs technology blog"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-
-
-            <div className="absolute inset-0 bg-gradient-to-r from-mat-deep via-mat-deep/35 to-transparent" />
-
-
-            {/* SIDE WORDS */}
-
-            <div className="absolute right-5 top-1/2 hidden -translate-y-1/2 lg:block">
-
-              <div className="border-l-2 border-mat-gold pl-4">
-
-                <div className="space-y-2 text-[8px] font-semibold uppercase tracking-[0.27em] text-white/80">
-                  <p>LEARN</p>
-                  <p>SHARE</p>
-                  <p>INNOVATE</p>
-                  <p>GROW</p>
-                  <p>TOGETHER</p>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
+          <span className={`text-[10px] font-bold tracking-widest ${
+            active ? 'text-white/40' : 'text-slate-300'
+          }`}>
+            {category.number}
+          </span>
 
         </div>
 
-      </section>
+        {/* CARD CONTENT */}
+        <div className="mt-6">
 
+          <h3 className="font-heading text-base font-extrabold">
+            {category.name}
+          </h3>
 
-      {/* ======================================================
-          CATEGORY FILTER
-      ======================================================= */}
-
-      <section
-        id="articles"
-        className="bg-white pt-7"
-      >
-
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
-
-          <p className="mb-3 text-[9px] font-bold uppercase tracking-[0.35em] text-mat-text">
-            BROWSE BY CATEGORY
+          <p className={`mt-2 text-xs leading-5 ${
+            active ? 'text-white/65' : 'text-mat-muted'
+          }`}>
+            {category.description}
           </p>
 
+        </div>
 
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none">
+        {/* CARD FOOTER */}
+        <div className={`mt-auto flex items-center gap-2 pt-6 text-[10px] font-bold ${
+          active ? 'text-mat-gold' : 'text-blue-700'
+        }`}>
+          Explore category
 
-            {categories.map((category) => {
+          <ArrowRightIcon className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+        </div>
 
-              const Icon = category.icon
+      </button>
+    )
+  })}
 
-              const active =
-                activeCategory === category.name
+</div>
 
-              return (
-                <button
-                  key={category.name}
-                  type="button"
-                  onClick={() =>
-                    setActiveCategory(category.name)
-                  }
-                  className={`flex shrink-0 items-center gap-2 rounded-lg border px-3 py-2.5 text-[8px] font-semibold transition-all duration-300 sm:text-[9px] ${
-                    active
-                      ? 'border-mat-deep bg-mat-deep text-white'
-                      : 'border-slate-200 bg-white text-mat-text hover:border-mat-gold hover:text-mat-gold'
-                  }`}
-                >
 
-                  <Icon />
+  </div>
+</section>
 
-                  {category.name}
 
-                </button>
-              )
-            })}
+
+      
+{/* ======================================================
+    FEATURED OPPORTUNITY
+======================================================= */}
+
+<section
+  id="featured-opportunity"
+  className="bg-white py-16 sm:py-20"
+>
+  <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
+
+    {/* SECTION HEADING */}
+    <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+      <div>
+        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-700">
+          HANDPICKED BY MAT LABS
+        </p>
+
+        <h2 className="mt-3 font-heading text-3xl font-extrabold tracking-tight text-mat-text sm:text-4xl">
+          Featured
+          <span className="text-mat-gold"> Opportunity</span>
+        </h2>
+
+        <p className="mt-3 max-w-[570px] text-sm leading-6 text-mat-muted">
+          A closer look at an opportunity selected by our editorial
+          team for its potential to support education, professional
+          development and innovation.
+        </p>
+      </div>
+
+      <span className="flex w-fit items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-[9px] font-bold uppercase tracking-wider text-amber-800">
+        <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+        Editorial preview
+      </span>
+    </div>
+
+    {/* FEATURED OPPORTUNITY CARD */}
+    <div className="mt-9 grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_15px_45px_rgba(3,17,31,0.06)] lg:grid-cols-[1.35fr_0.85fr]">
+
+      {/* LEFT: MAIN INFORMATION */}
+      <div className="relative flex flex-col justify-between bg-mat-deep p-7 sm:p-10 lg:p-12">
+
+        <div>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="rounded-md bg-mat-gold px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-mat-deep">
+              Scholarship
+            </span>
+
+            <span className="text-[9px] font-semibold uppercase tracking-wider text-white/50">
+              Featured selection
+            </span>
+          </div>
+
+          <p className="mt-8 text-[10px] font-bold uppercase tracking-[0.25em] text-mat-gold">
+            OPPORTUNITY TITLE
+          </p>
+
+          <h3 className="mt-3 max-w-[620px] font-heading text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+            Featured Scholarship Opportunity
+          </h3>
+
+          <p className="mt-5 max-w-[590px] text-sm leading-7 text-white/70">
+            This space will introduce the scholarship, its purpose,
+            the institution offering it and the value it provides
+            to eligible applicants.
+          </p>
+
+          <div className="mt-8">
+            <p className="text-[9px] font-bold uppercase tracking-wider text-white/45">
+              OFFERED BY
+            </p>
+            <p className="mt-2 text-sm font-semibold text-white">
+              Official provider name
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-white/10 pt-6">
+          <p className="text-[9px] leading-5 text-white/45">
+            This is a design preview. Opportunity details and
+            application links will be added after official verification.
+          </p>
+        </div>
+
+      </div>
+
+      {/* RIGHT: OPPORTUNITY DETAILS */}
+      <div className="flex flex-col justify-between bg-slate-50 p-7 sm:p-10">
+
+        <div>
+          <div className="flex items-center gap-3 border-b border-slate-200 pb-5">
+            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-mat-deep shadow-sm">
+              <BookIcon className="h-5 w-5" />
+            </div>
+
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                OPPORTUNITY SNAPSHOT
+              </p>
+              <p className="mt-1 text-sm font-extrabold text-mat-text">
+                Key Information
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-6 py-7">
+
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                STUDY LEVEL
+              </p>
+              <p className="mt-2 text-sm font-semibold text-mat-text">
+                To be confirmed
+              </p>
+            </div>
+
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                ELIGIBILITY
+              </p>
+              <p className="mt-2 text-sm font-semibold text-mat-text">
+                To be confirmed
+              </p>
+            </div>
+
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                FUNDING COVERAGE
+              </p>
+              <p className="mt-2 text-sm font-semibold text-mat-text">
+                To be confirmed
+              </p>
+            </div>
+
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                APPLICATION DEADLINE
+              </p>
+              <p className="mt-2 text-sm font-semibold text-mat-text">
+                To be confirmed
+              </p>
+            </div>
 
           </div>
+        </div>
+
+        {/* APPLICATION ACTION */}
+        <div className="border-t border-slate-200 pt-6">
+
+          <div className="mb-4 flex items-center gap-2 text-mat-muted">
+            <ShieldIcon className="h-4 w-4 text-emerald-600" />
+            <span className="text-[10px] font-medium">
+              Official source verification required
+            </span>
+          </div>
+
+          <button
+            type="button"
+            disabled
+            className="flex w-full cursor-not-allowed items-center justify-center gap-3 rounded-lg bg-slate-300 px-5 py-4 text-[10px] font-bold text-slate-600"
+          >
+            Application link coming soon
+            <ArrowRightIcon className="h-4 w-4" />
+          </button>
+
+          <p className="mt-3 text-center text-[9px] leading-5 text-mat-muted">
+            Application information will be published after
+            verification by Mat Labs.
+          </p>
 
         </div>
 
-      </section>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{/* ======================================================
+    LATEST OPPORTUNITIES
+======================================================= */}
+<section
+  id="latest-opportunities"
+  className="bg-slate-50 py-16 sm:py-20"
+>
+  <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
+
+    {/* SECTION HEADER */}
+    <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <div>
+        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-700">
+          EXPLORE WHAT'S NEXT
+        </p>
+
+        <h2 className="mt-3 font-heading text-3xl font-extrabold tracking-tight text-mat-text sm:text-4xl">
+          Latest
+          <span className="text-mat-gold"> Opportunities</span>
+        </h2>
+
+        <p className="mt-3 max-w-[580px] text-sm leading-6 text-mat-muted">
+          Explore carefully researched opportunities designed to
+          support your education, career development and ambitions.
+        </p>
+      </div>
+
+      <span className="flex w-fit items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-[9px] font-bold uppercase tracking-wider text-emerald-800">
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+        Mat Labs Editorial Desk
+      </span>
+    </div>
+
+    {/* FILTER STATUS AND CATEGORY RESET */}
+<div className="mt-9 flex flex-col gap-4 border-b border-slate-200 pb-5 sm:flex-row sm:items-center sm:justify-between">
+
+  <div>
+    <p className="text-xs font-semibold text-mat-text">
+      {activeCategory === 'All'
+        ? 'All opportunities'
+        : activeCategory}
+    </p>
+
+    <p className="mt-1 text-xs text-mat-muted">
+      Showing {filteredOpportunities.length} opportunities
+    </p>
+  </div>
+
+  <div className="flex flex-wrap items-center gap-3">
+    <button
+      type="button"
+      onClick={() => setActiveCategory('All')}
+      className={`rounded-lg px-5 py-3 text-[10px] font-bold uppercase tracking-wider transition-all ${
+        activeCategory === 'All'
+          ? 'bg-mat-deep text-white shadow-md'
+          : 'border border-slate-200 bg-white text-mat-text hover:border-mat-gold hover:text-blue-700'
+      }`}
+    >
+      All Opportunities
+    </button>
+  </div>
+
+</div>
+
+    {/* OPPORTUNITY GRID */}
+    {filteredOpportunities.length > 0 ? (
+      <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {filteredOpportunities.map((opportunity) => (
+          <article
+            key={opportunity.id}
+            className="group flex flex-col rounded-xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_15px_35px_rgba(3,17,31,0.07)]"
+          >
+            {/* CARD TOP */}
+            <div className="flex items-center justify-between gap-3">
+              <span className="rounded-md bg-blue-50 px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-blue-700">
+                {opportunity.category}
+              </span>
+
+              <span className="rounded-full bg-amber-50 px-3 py-1.5 text-[8px] font-bold uppercase tracking-wider text-amber-800">
+                {opportunity.status}
+              </span>
+            </div>
+
+            {/* TITLE AND DESCRIPTION */}
+            <div className="mt-7 flex-1">
+              <h3 className="font-heading text-lg font-extrabold leading-snug text-mat-text transition-colors group-hover:text-blue-700">
+                {opportunity.title}
+              </h3>
+
+              <p className="mt-3 text-xs leading-6 text-mat-muted">
+                {opportunity.description}
+              </p>
+            </div>
+
+            {/* OPPORTUNITY DETAILS */}
+            <div className="mt-7 space-y-4 border-t border-slate-100 pt-5">
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                  Provider
+                </span>
+                <span className="max-w-[60%] text-right text-xs font-semibold text-mat-text">
+                  {opportunity.provider}
+                </span>
+              </div>
+
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                  Location
+                </span>
+                <span className="max-w-[60%] text-right text-xs font-semibold text-mat-text">
+                  {opportunity.location}
+                </span>
+              </div>
+
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                  Deadline
+                </span>
+                <span className="max-w-[60%] text-right text-xs font-semibold text-mat-text">
+                  {opportunity.deadline}
+                </span>
+              </div>
+
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
+                  Funding
+                </span>
+                <span className="max-w-[60%] text-right text-xs font-semibold text-mat-text">
+                  {opportunity.funding}
+                </span>
+              </div>
+            </div>
+
+            {/* FOOTER */}
+            <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-5">
+              <span className="text-[9px] font-semibold uppercase tracking-wider text-slate-400">
+                Mat Labs Research
+              </span>
+
+              <span className="flex items-center gap-2 text-[10px] font-bold text-blue-700">
+                Details coming soon
+                <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div className="mt-8 rounded-xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center">
+        <h3 className="font-heading text-lg font-bold text-mat-text">
+          No opportunities in this category yet
+        </h3>
+
+        <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-mat-muted">
+          Our editorial team is researching opportunities in this
+          category. Please check back soon.
+        </p>
+
+        <button
+          type="button"
+          onClick={() => setActiveCategory('All')}
+          className="mt-6 rounded-lg bg-mat-deep px-5 py-3 text-xs font-bold text-white transition-colors hover:bg-blue-800"
+        >
+          View all opportunities
+        </button>
+      </div>
+    )}
+
+  </div>
+</section>
 
 
       {/* ======================================================
-          FEATURED ARTICLE
-      ======================================================= */}
+    LATEST INSIGHTS
+======================================================= */}
 
-      <section className="bg-white py-8">
+<section
+  id="insights"
+  className="bg-white pb-9"
+>
+  <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
 
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
+    <div className="flex items-end justify-between">
 
-          <div className="flex items-end justify-between gap-5">
+      <div>
+        <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.25em] text-blue-700">
+          TECHNOLOGY, KNOWLEDGE & INNOVATION
+        </p>
 
-            <div>
+        <h2 className="font-heading text-lg font-extrabold text-mat-text sm:text-xl">
+          LATEST <span className="text-mat-gold">INSIGHTS</span>
+        </h2>
 
-              <p className="mb-2 text-[9px] font-bold uppercase tracking-[0.35em] text-mat-text">
-                FEATURED ARTICLE
-              </p>
+        <p className="mt-1 text-xs text-mat-muted">
+          Discover practical technology insights, expert perspectives
+          and knowledge designed to inspire innovation and support
+          continuous learning.
+        </p>
+      </div>
 
+      <a
+        href="#articles"
+        className="hidden items-center gap-2 text-[9px] font-bold text-blue-700 sm:flex"
+      >
+        View All Insights
+        <ArrowRightIcon className="h-4 w-4" />
+      </a>
 
-              <h2 className="font-heading text-3xl font-extrabold tracking-[-0.04em] text-mat-text sm:text-4xl">
+    </div>
 
-                Latest from
-                <span className="text-mat-gold">
-                  {' '}Mat Labs
-                </span>
+    <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
 
-              </h2>
+      {articles.map((article) => {
+
+        const Icon = article.icon
+
+        return (
+          <Link
+            to={`/insights/${article.id}`}
+            key={article.id}
+            className="group block overflow-hidden rounded-[9px] border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-mat-gold/40 hover:shadow-[0_12px_30px_rgba(3,17,31,0.08)]"
+          >
+
+            <div className="relative h-[145px] overflow-hidden">
+
+              <img
+                src={article.image}
+                alt={article.title}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+
+              <span
+                className={`absolute left-3 top-3 rounded-md px-2.5 py-1.5 text-[7px] font-bold ${article.categoryClass}`}
+              >
+                {article.category}
+              </span>
 
             </div>
 
+            <div className="p-3.5">
 
-            <a
-              href="#popular"
-              className="hidden items-center gap-2 text-[9px] font-bold text-mat-text transition-colors hover:text-mat-gold sm:flex"
-            >
-              View All Articles
-              <ArrowRightIcon />
-            </a>
+              <h3 className="font-heading text-[12px] font-extrabold leading-[1.35] text-mat-text">
+                {article.title}
+              </h3>
 
-          </div>
+              <p className="mt-2 text-[8px] text-mat-muted">
+                By {article.author}
+              </p>
 
+              <div className="mt-2 flex items-center gap-2 text-[7px] text-mat-muted">
 
-          <div className="mt-5 grid gap-5 lg:grid-cols-[1.55fr_0.95fr]">
+                <span>{article.date}</span>
 
-            {/* FEATURED */}
+                <span>•</span>
 
-            <article className="group relative min-h-[350px] overflow-hidden rounded-[10px]">
-
-              
-              <img
-                src="/images/projects/cyberwatch.png"
-                alt="Mat Labs technology team collaborating in their office"
-                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
-              />
-
-
-
-              <div className="absolute inset-0 bg-gradient-to-t from-mat-deep via-mat-deep/75 to-mat-deep/10" />
-
-
-              <div className="relative flex min-h-[350px] flex-col justify-end p-6 sm:p-7">
-
-                <span className="mb-3 w-fit rounded-md bg-blue-100 px-3 py-1.5 text-[8px] font-bold text-blue-700">
-                  Web Development
+                <span className="flex items-center gap-1">
+                  <ClockIcon />
+                  {article.readTime}
                 </span>
-
-
-                <h3 className="max-w-[610px] font-heading text-2xl font-extrabold leading-tight text-white sm:text-3xl">
-                  Building Modern and Scalable Web Applications in 2025
-                </h3>
-
-
-                <p className="mt-3 max-w-[580px] text-xs leading-5 text-white/75 sm:text-sm">
-                  Discover the best practices, tools and technologies
-                  for building scalable, secure and high-performing
-                  web applications in 2025.
-                </p>
-
-
-                <div className="mt-4 flex flex-wrap items-center gap-4 text-[8px] text-white/70">
-
-                  <span>
-                    By Emmanuel Matson
-                  </span>
-
-                  <span>
-                    Oct 5, 2025
-                  </span>
-
-                  <span className="flex items-center gap-1">
-                    <ClockIcon />
-                    8 min read
-                  </span>
-
-                </div>
-
-
-                <a
-                  href="/blog/building-modern-web-applications"
-                  className="mt-5 inline-flex w-fit items-center gap-3 rounded-md bg-mat-gold px-5 py-3 text-[9px] font-bold text-mat-deep transition-all duration-300 hover:bg-white"
-                >
-                  Read Full Article
-                  <ArrowRightIcon />
-                </a>
 
               </div>
 
-            </article>
-
-
-            {/* SIDE ARTICLES */}
-
-            <div className="space-y-3">
-
-              {popularArticles.map((article) => {
-
-                const Icon = article.icon
-
-                return (
-                  <article
-                    key={article.id}
-                    className="group grid grid-cols-[115px_1fr] gap-3 overflow-hidden rounded-[8px] border border-slate-200 bg-white p-1.5 transition-all duration-300 hover:border-mat-gold/40 hover:shadow-md"
-                  >
-
-                    <div className="relative h-[88px] overflow-hidden rounded-[6px]">
-
-                      <img
-                        src={article.image}
-                        alt={article.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-
-                    </div>
-
-
-                    <div className="py-1 pr-2">
-
-                      <span
-                        className={`inline-flex items-center gap-1 rounded px-2 py-1 text-[7px] font-bold ${article.categoryClass}`}
-                      >
-                        <Icon className="h-3 w-3" />
-                        {article.category}
-                      </span>
-
-
-                      <h3 className="mt-1.5 line-clamp-2 font-heading text-[11px] font-extrabold leading-[1.3] text-mat-text">
-                        {article.title}
-                      </h3>
-
-
-                      <div className="mt-2 flex items-center gap-2 text-[7px] text-mat-muted">
-
-                        <span>
-                          By {article.author}
-                        </span>
-
-                        <span>
-                          •
-                        </span>
-
-                        <span>
-                          {article.date}
-                        </span>
-
-                        <span className="flex items-center gap-1">
-                          <ClockIcon />
-                          {article.readTime}
-                        </span>
-
-                      </div>
-
-                    </div>
-
-                  </article>
-                )
-              })}
-
             </div>
 
-          </div>
+          </Link>
+        )
+      })}
 
-        </div>
+    </div>
 
-      </section>
-
-
-      {/* ======================================================
-          POPULAR ARTICLES
-      ======================================================= */}
-
-      <section
-        id="popular"
-        className="bg-white pb-9"
-      >
-
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-10">
-
-          <div className="flex items-end justify-between">
-
-            <div>
-
-              <h2 className="font-heading text-lg font-extrabold text-mat-text sm:text-xl">
-                POPULAR ARTICLES
-              </h2>
-
-              <p className="mt-1 text-xs text-mat-muted">
-                Most read articles from our community.
-              </p>
-
-            </div>
-
-
-            <a
-              href="#articles"
-              className="hidden items-center gap-2 text-[9px] font-bold text-blue-700 sm:flex"
-            >
-              View All Popular
-              <ArrowRightIcon />
-            </a>
-
-          </div>
-
-
-          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-
-            {articles.slice(3, 7).map((article) => {
-
-              const Icon = article.icon
-
-              return (
-                <article
-                  key={article.id}
-                  className="group overflow-hidden rounded-[9px] border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-mat-gold/40 hover:shadow-[0_12px_30px_rgba(3,17,31,0.08)]"
-                >
-
-                  <div className="relative h-[145px] overflow-hidden">
-
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-
-
-                    <span
-                      className={`absolute left-3 top-3 rounded-md px-2.5 py-1.5 text-[7px] font-bold ${article.categoryClass}`}
-                    >
-                      {article.category}
-                    </span>
-
-                  </div>
-
-
-                  <div className="p-3.5">
-
-                    <h3 className="font-heading text-[12px] font-extrabold leading-[1.35] text-mat-text">
-                      {article.title}
-                    </h3>
-
-
-                    <p className="mt-2 text-[8px] text-mat-muted">
-                      By {article.author}
-                    </p>
-
-
-                    <div className="mt-2 flex items-center gap-2 text-[7px] text-mat-muted">
-
-                      <span>
-                        {article.date}
-                      </span>
-
-                      <span>
-                        •
-                      </span>
-
-                      <span className="flex items-center gap-1">
-                        <ClockIcon />
-                        {article.readTime}
-                      </span>
-
-                    </div>
-
-                  </div>
-
-                </article>
-              )
-            })}
-
-          </div>
-
-        </div>
-
-      </section>
+  </div>
+</section>
 
 
       {/* ======================================================
