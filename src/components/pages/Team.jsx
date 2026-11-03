@@ -1037,17 +1037,46 @@ function Team() {
       ======================================================= */}
       {selectedMember && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-mat-deep/80 p-3 backdrop-blur-md sm:p-6"
+          className="team-profile-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-mat-deep/85 p-2 backdrop-blur-md sm:p-5"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) setSelectedMember(null)
           }}
           role="presentation"
         >
+          <style>{`
+            @keyframes teamBackdropEnter {
+              from { opacity: 0; backdrop-filter: blur(0); }
+              to { opacity: 1; backdrop-filter: blur(12px); }
+            }
+            @keyframes teamProfilePanelEnter {
+              0% { opacity: 0; transform: translateY(28px) scale(.965); }
+              70% { opacity: 1; transform: translateY(-3px) scale(1.008); }
+              100% { opacity: 1; transform: translateY(0) scale(1); }
+            }
+            @keyframes teamPortraitPop {
+              0% { opacity: 0; transform: scale(.78) translateY(24px); filter: blur(12px); }
+              65% { opacity: 1; transform: scale(1.035) translateY(-3px); filter: blur(0); }
+              100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+            }
+            @keyframes teamProfileTextEnter {
+              from { opacity: 0; transform: translateY(14px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            .team-profile-backdrop { animation: teamBackdropEnter 360ms ease-out both; }
+            .team-profile-panel { transform-origin: center; animation: teamProfilePanelEnter 520ms cubic-bezier(.2,.8,.2,1) both; }
+            .team-profile-portrait { animation: teamPortraitPop 760ms cubic-bezier(.16,1,.3,1) 80ms both; }
+            .team-profile-copy { animation: teamProfileTextEnter 480ms ease-out 220ms both; }
+            @media (prefers-reduced-motion: reduce) {
+              .team-profile-backdrop, .team-profile-panel, .team-profile-portrait, .team-profile-copy {
+                animation: none !important;
+              }
+            }
+          `}</style>
           <section
             role="dialog"
             aria-modal="true"
             aria-labelledby="team-profile-title"
-            className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-white shadow-2xl"
+            className="team-profile-panel relative max-h-[94vh] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-2xl bg-white shadow-[0_30px_100px_rgba(0,0,0,0.4)] sm:rounded-3xl"
           >
             <button
               type="button"
@@ -1059,11 +1088,11 @@ function Team() {
             </button>
 
             <div className="grid md:grid-cols-[0.85fr_1.15fr]">
-              <div className="relative min-h-[300px] overflow-hidden bg-mat-deep md:min-h-[560px]">
+              <div className="relative h-[42vh] min-h-[280px] max-h-[430px] overflow-hidden bg-mat-deep sm:h-[48vh] md:h-auto md:min-h-[600px] md:max-h-none">
                 <img
                   src={selectedMember.image}
                   alt={selectedMember.name}
-                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  className="team-profile-portrait absolute inset-0 h-full w-full object-cover object-top will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-mat-deep via-mat-deep/10 to-transparent md:bg-gradient-to-b md:from-mat-deep/25 md:via-transparent md:to-mat-deep/65" />
                 <div className="absolute bottom-5 left-5 right-5 text-white">
@@ -1079,7 +1108,7 @@ function Team() {
                 </div>
               </div>
 
-              <div className="p-6 sm:p-8 md:p-10">
+              <div className="team-profile-copy p-5 sm:p-8 md:p-10">
                 <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-blue-700">
                   MAT LABS • PROFESSIONAL PROFILE
                 </p>
@@ -1126,14 +1155,14 @@ function Team() {
                   <Link
                     to="/contact"
                     onClick={() => setSelectedMember(null)}
-                    className="inline-flex items-center gap-2 rounded-lg bg-mat-deep px-5 py-3 text-xs font-bold text-white transition hover:bg-mat-blue"
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-mat-deep px-5 py-3 text-xs font-bold text-white transition hover:bg-mat-blue"
                   >
                     Contact Mat Labs <ArrowRightIcon />
                   </Link>
                   <button
                     type="button"
                     onClick={() => setSelectedMember(null)}
-                    className="rounded-lg border border-slate-200 px-5 py-3 text-xs font-bold text-mat-deep transition hover:border-mat-gold hover:bg-amber-50"
+                    className="min-h-11 rounded-lg border border-slate-200 px-5 py-3 text-xs font-bold text-mat-deep transition hover:border-mat-gold hover:bg-amber-50"
                   >
                     Close profile
                   </button>
