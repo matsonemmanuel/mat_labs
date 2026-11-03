@@ -552,7 +552,7 @@ const teamMembers = [
   },
 
   {
-    name: 'Oyr John Roman',
+    name: 'Roman Oyr John ',
     role: 'UI/UX & Cenematopgraphy Designer',
     category: 'Design & Branding',
     image: '/images/team/romman.jpg',
