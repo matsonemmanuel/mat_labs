@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
  
 // ============================================================
@@ -638,6 +638,24 @@ const badgeStyles = {
 
 function Team() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [selectedMember, setSelectedMember] = useState(null)
+
+  // Keep the profile dialog keyboard-accessible and prevent background scrolling.
+  useEffect(() => {
+    if (!selectedMember) return
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setSelectedMember(null)
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [selectedMember])
 
   const filteredMembers =
     activeFilter === 'All'
@@ -836,8 +854,8 @@ function Team() {
 
               const Icon = filter.icon
 
-              const active =
-                activeFilter === filter.name
+              const filterValue = filter.value || filter.name
+              const active = activeFilter === filterValue
 
               return (
                 <button
@@ -901,6 +919,23 @@ function Team() {
                       {member.category}
                     </div>
 
+                    {/* Image hover treatment: quick professional summary + profile action */}
+                    <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-mat-deep/95 via-mat-deep/35 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-mat-gold">
+                        {member.role}
+                      </p>
+                      <p className="line-clamp-3 text-xs leading-5 text-white">
+                        {member.description}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedMember(member)}
+                        className="mt-3 inline-flex w-fit items-center gap-2 rounded-full bg-white px-4 py-2 text-[10px] font-bold text-mat-deep transition hover:bg-mat-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      >
+                        Explore profile <ArrowRightIcon />
+                      </button>
+                    </div>
+
                   </div>
 
 
@@ -930,39 +965,21 @@ function Team() {
                     ================================================== */}
 
                     <div className="mt-2.5 flex items-center gap-3 text-slate-600">
-
-                      {member.socials.includes('linkedin') && (
-                        <a
-                          href="#"
-                          aria-label={`${member.name} LinkedIn`}
-                          className="transition-colors hover:text-blue-600"
-                        >
+                      {member.links?.linkedin && (
+                        <a href={member.links.linkedin} target="_blank" rel="noreferrer" aria-label={`${member.name} LinkedIn`} className="transition-colors hover:text-blue-600">
                           <LinkedinIcon />
                         </a>
                       )}
-
-
-                      {member.socials.includes('github') && (
-                        <a
-                          href="#"
-                          aria-label={`${member.name} GitHub`}
-                          className="transition-colors hover:text-mat-deep"
-                        >
+                      {member.links?.github && (
+                        <a href={member.links.github} target="_blank" rel="noreferrer" aria-label={`${member.name} GitHub`} className="transition-colors hover:text-mat-deep">
                           <GithubIcon />
                         </a>
                       )}
-
-
-                      {member.socials.includes('email') && (
-                        <a
-                          href="mailto:"
-                          aria-label={`Email ${member.name}`}
-                          className="transition-colors hover:text-mat-gold-dark"
-                        >
+                      {member.links?.email && (
+                        <a href={`mailto:${member.links.email}`} aria-label={`Email ${member.name}`} className="transition-colors hover:text-mat-gold-dark">
                           <MailIcon />
                         </a>
                       )}
-
                     </div>
 
 
@@ -992,7 +1009,9 @@ function Team() {
 
                     <button
                       type="button"
-                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border border-mat-gold/50 px-3 py-2.5 text-[9px] font-bold text-mat-text transition-all duration-300 hover:bg-mat-gold hover:text-mat-deep"
+                      onClick={() => setSelectedMember(member)}
+                      aria-label={`View ${member.name}'s professional profile`}
+                      className="mt-3 flex w-full items-center justify-center gap-2 rounded-md border border-mat-gold/50 px-3 py-2.5 text-[9px] font-bold text-mat-text transition-all duration-300 hover:bg-mat-gold hover:text-mat-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-mat-blue focus-visible:ring-offset-2"
                     >
 
                       View Profile
@@ -1012,6 +1031,118 @@ function Team() {
         </div>
 
       </section>
+
+      {/* ======================================================
+          PROFESSIONAL PROFILE OVERLAY
+      ======================================================= */}
+      {selectedMember && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-mat-deep/80 p-3 backdrop-blur-md sm:p-6"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setSelectedMember(null)
+          }}
+          role="presentation"
+        >
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="team-profile-title"
+            className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-2xl bg-white shadow-2xl"
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedMember(null)}
+              aria-label="Close profile"
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-mat-deep/80 text-xl text-white transition hover:bg-mat-gold hover:text-mat-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-mat-blue"
+            >
+              ×
+            </button>
+
+            <div className="grid md:grid-cols-[0.85fr_1.15fr]">
+              <div className="relative min-h-[300px] overflow-hidden bg-mat-deep md:min-h-[560px]">
+                <img
+                  src={selectedMember.image}
+                  alt={selectedMember.name}
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-mat-deep via-mat-deep/10 to-transparent md:bg-gradient-to-b md:from-mat-deep/25 md:via-transparent md:to-mat-deep/65" />
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <span className="inline-flex rounded-full border border-mat-gold/50 bg-mat-deep/70 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-mat-gold backdrop-blur">
+                    {selectedMember.category}
+                  </span>
+                  <h2 className="mt-3 font-heading text-2xl font-extrabold leading-tight sm:text-3xl">
+                    {selectedMember.name}
+                  </h2>
+                  <p className="mt-1 text-sm font-semibold text-white/80">
+                    {selectedMember.role}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 md:p-10">
+                <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-blue-700">
+                  MAT LABS • PROFESSIONAL PROFILE
+                </p>
+                <h3 id="team-profile-title" className="mt-3 font-heading text-2xl font-extrabold tracking-tight text-mat-deep sm:text-3xl">
+                  Meet {selectedMember.name.split(' ')[0]}
+                </h3>
+                <div className="mt-4 h-1 w-14 rounded-full bg-mat-gold" />
+
+                <div className="mt-6">
+                  <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-mat-deep">
+                    Professional overview
+                  </h4>
+                  <p className="mt-3 text-sm leading-7 text-mat-muted">
+                    {selectedMember.description}
+                  </p>
+                </div>
+
+                <div className="mt-7">
+                  <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-mat-deep">
+                    Areas of expertise
+                  </h4>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {selectedMember.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-700"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-7 rounded-xl border border-mat-gold/40 bg-amber-50/60 p-4">
+                  <p className="text-xs font-bold text-mat-deep">
+                    Contribution at Mat Labs
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-mat-muted">
+                    Contributes specialist knowledge in {selectedMember.category.toLowerCase()} to help the Mat Labs team design, deliver and improve practical technology solutions.
+                  </p>
+                </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <Link
+                    to="/contact"
+                    onClick={() => setSelectedMember(null)}
+                    className="inline-flex items-center gap-2 rounded-lg bg-mat-deep px-5 py-3 text-xs font-bold text-white transition hover:bg-mat-blue"
+                  >
+                    Contact Mat Labs <ArrowRightIcon />
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedMember(null)}
+                    className="rounded-lg border border-slate-200 px-5 py-3 text-xs font-bold text-mat-deep transition hover:border-mat-gold hover:bg-amber-50"
+                  >
+                    Close profile
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
 
 
       {/* ======================================================
