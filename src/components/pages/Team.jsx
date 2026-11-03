@@ -550,6 +550,24 @@ const teamMembers = [
     icon: DesignIcon,
     badge: 'design',
   },
+
+  {
+    name: 'Oyr John Roman',
+    role: 'UI/UX & Cenematopgraphy Designer',
+    category: 'Design & Branding',
+    image: '/images/team/Roman.JPG',
+    description:
+      'Creates intuitive user experiences, branding and visual designs that bring ideas to life.',
+    skills: [
+      'UI/UX Design',
+      'Branding',
+      'Logo Design',
+      'Cinematography',
+    ],
+    socials: ['linkedin', 'email'],
+    icon: DesignIcon,
+    badge: 'design',
+  },
 ]
 
 
