@@ -1152,20 +1152,20 @@ function Team() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <Link
-                    to="/contact"
-                    onClick={() => setSelectedMember(null)}
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-mat-deep px-5 py-3 text-xs font-bold text-white transition hover:bg-mat-blue"
-                  >
-                    Contact Mat Labs <ArrowRightIcon />
-                  </Link>
                   <button
                     type="button"
                     onClick={() => setSelectedMember(null)}
-                    className="min-h-11 rounded-lg border border-slate-200 px-5 py-3 text-xs font-bold text-mat-deep transition hover:border-mat-gold hover:bg-amber-50"
+                    className="inline-flex min-h-11 items-center justify-center rounded-lg bg-mat-deep px-5 py-3 text-xs font-bold text-white transition hover:bg-mat-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-mat-blue focus-visible:ring-offset-2"
                   >
                     Close profile
                   </button>
+                  <Link
+                    to="/contact"
+                    onClick={() => setSelectedMember(null)}
+                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-slate-200 px-5 py-3 text-xs font-bold text-mat-deep transition hover:border-mat-gold hover:bg-amber-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-mat-blue focus-visible:ring-offset-2"
+                  >
+                    Contact Mat Labs <ArrowRightIcon />
+                  </Link>
                 </div>
               </div>
             </div>
