@@ -467,7 +467,7 @@ const teamMembers = [
   },
 
   {
-    name: 'Divine Nobuhuro',
+    name: 'Divine Nubuhoro',
     role: 'Mobile App Developer',
     category: 'Mobile Apps',
     image: '/images/team/divine.jpg',

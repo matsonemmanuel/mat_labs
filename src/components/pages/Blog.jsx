@@ -570,6 +570,42 @@ function Blog() {
   lastVerified: '3 November 2026',
 },
 
+
+{
+  id: 2,
+  title: 'Mastercard Foundation Scholars Program at the University of Cambridge',
+  category: 'Scholarships',
+  provider: 'University of Cambridge & Mastercard Foundation',
+  location: 'Cambridge, United Kingdom',
+  deadline: 'Varies by course – early December or January 2027',
+  funding: 'Tuition, living allowance, travel, visa costs and laptop',
+  status: 'Applications open',
+
+  description:
+    'The Mastercard Foundation Scholars Program at the University of Cambridge supports talented African students to pursue eligible full-time master’s degrees while developing their leadership potential and contributing to sustainable development in Africa.',
+
+  eligibility:
+    'Applicants must be citizens of African countries, meet the academic entry requirements of their chosen course, and normally live in an African country. Exceptions apply to people temporarily away for study or work and those with refugee or internally displaced status. Women, refugees, internally displaced people and people with disabilities are particularly encouraged to apply.',
+
+  studyLevel: "Master's degree",
+
+  duration: 'Generally 9–12 months',
+
+  applicationProcess:
+    'Select an eligible full-time master’s course at Cambridge, start the postgraduate application, opt in for funding and select the Mastercard Foundation Scholars Program. Submit the scholarship statement and complete the application before the specific course funding deadline.',
+
+  officialUrl:
+    'https://www.mastercardfoundation.fund.cam.ac.uk/',
+
+  applicationUrl:
+    'https://www.mastercardfoundation.fund.cam.ac.uk/apply/how-apply',
+
+  sourceUrl:
+    'https://www.mastercardfoundation.fund.cam.ac.uk/apply/eligibility',
+
+  lastVerified: '3 November 2026',
+},
+
   {
     id: 2,
     title: 'Fellowship opportunity to be announced',
