@@ -1037,7 +1037,7 @@ function Team() {
       ======================================================= */}
       {selectedMember && (
         <div
-          className="team-profile-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-mat-deep/85 p-2 backdrop-blur-md sm:p-5"
+          className="team-profile-backdrop fixed inset-0 z-[9999] flex items-center justify-center bg-mat-deep/85 p-2 backdrop-blur-md sm:p-5"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) setSelectedMember(null)
           }}
@@ -1076,13 +1076,13 @@ function Team() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="team-profile-title"
-            className="team-profile-panel relative max-h-[94vh] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-2xl bg-white shadow-[0_30px_100px_rgba(0,0,0,0.4)] sm:rounded-3xl"
+            className="team-profile-panel relative isolate max-h-[94vh] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-2xl bg-white shadow-[0_30px_100px_rgba(0,0,0,0.4)] sm:rounded-3xl"
           >
             <button
               type="button"
               onClick={() => setSelectedMember(null)}
               aria-label="Close profile"
-              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-mat-deep/80 text-xl text-white transition hover:bg-mat-gold hover:text-mat-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-mat-blue"
+              className="sticky top-3 z-[10001] ml-auto mr-3 -mb-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-white bg-[#071A2B] text-2xl font-bold text-white shadow-[0_4px_18px_rgba(0,0,0,0.45)] transition hover:scale-105 hover:bg-mat-gold hover:text-mat-deep focus:outline-none focus-visible:ring-4 focus-visible:ring-mat-blue sm:top-4 sm:mr-4"
             >
               ×
             </button>
