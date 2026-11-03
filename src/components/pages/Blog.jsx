@@ -1069,6 +1069,7 @@ function Blog() {
 
 
       
+
 {/* ======================================================
     FEATURED OPPORTUNITY
 ======================================================= */}
@@ -1088,23 +1089,22 @@ function Blog() {
 
         <h2 className="mt-3 font-heading text-3xl font-extrabold tracking-tight text-mat-text sm:text-4xl">
           Featured
-          <span className="text-mat-gold"> Opportunity</span>
+          <span className="text-mat-gold"> Scholarship</span>
         </h2>
 
         <p className="mt-3 max-w-[570px] text-sm leading-6 text-mat-muted">
-          A closer look at an opportunity selected by our editorial
-          team for its potential to support education, professional
-          development and innovation.
+          A closer look at a verified scholarship opportunity
+          selected by our editorial team.
         </p>
       </div>
 
       <span className="flex w-fit items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-[9px] font-bold uppercase tracking-wider text-amber-800">
         <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-        Editorial preview
+        Featured selection
       </span>
     </div>
 
-    {/* FEATURED OPPORTUNITY CARD */}
+    {/* FEATURED SCHOLARSHIP CARD */}
     <div className="mt-9 grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_15px_45px_rgba(3,17,31,0.06)] lg:grid-cols-[1.35fr_0.85fr]">
 
       {/* LEFT: MAIN INFORMATION */}
@@ -1117,22 +1117,25 @@ function Blog() {
             </span>
 
             <span className="text-[9px] font-semibold uppercase tracking-wider text-white/50">
-              Featured selection
+              Master's Degree
             </span>
           </div>
 
           <p className="mt-8 text-[10px] font-bold uppercase tracking-[0.25em] text-mat-gold">
-            OPPORTUNITY TITLE
+            FEATURED OPPORTUNITY
           </p>
 
           <h3 className="mt-3 max-w-[620px] font-heading text-3xl font-extrabold leading-tight text-white sm:text-4xl">
-            Featured Scholarship Opportunity
+            Mastercard Foundation Scholars Program at UC Berkeley
           </h3>
 
           <p className="mt-5 max-w-[590px] text-sm leading-7 text-white/70">
-            This space will introduce the scholarship, its purpose,
-            the institution offering it and the value it provides
-            to eligible applicants.
+            The programme supports academically talented African
+            students who have experienced significant barriers to
+            higher education and demonstrate leadership potential
+            and a commitment to contributing to their communities.
+            It supports eligible master's degree programmes at
+            the University of California, Berkeley.
           </p>
 
           <div className="mt-8">
@@ -1140,15 +1143,16 @@ function Blog() {
               OFFERED BY
             </p>
             <p className="mt-2 text-sm font-semibold text-white">
-              Official provider name
+              University of California, Berkeley & Mastercard Foundation
             </p>
           </div>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6">
           <p className="text-[9px] leading-5 text-white/45">
-            This is a design preview. Opportunity details and
-            application links will be added after official verification.
+            Mat Labs editorial selection. Applicants should confirm
+            current programme requirements and deadlines directly
+            with UC Berkeley.
           </p>
         </div>
 
@@ -1180,7 +1184,7 @@ function Blog() {
                 STUDY LEVEL
               </p>
               <p className="mt-2 text-sm font-semibold text-mat-text">
-                To be confirmed
+                Eligible Master's Programmes
               </p>
             </div>
 
@@ -1188,8 +1192,9 @@ function Blog() {
               <p className="text-[9px] font-bold uppercase tracking-wider text-mat-muted">
                 ELIGIBILITY
               </p>
-              <p className="mt-2 text-sm font-semibold text-mat-text">
-                To be confirmed
+              <p className="mt-2 text-sm leading-6 font-semibold text-mat-text">
+                African citizens, including eligible refugees
+                and forcibly displaced Africans.
               </p>
             </div>
 
@@ -1198,7 +1203,8 @@ function Blog() {
                 FUNDING COVERAGE
               </p>
               <p className="mt-2 text-sm font-semibold text-mat-text">
-                To be confirmed
+                Comprehensive scholar support. Confirm award details
+                with Berkeley.
               </p>
             </div>
 
@@ -1207,7 +1213,7 @@ function Blog() {
                 APPLICATION DEADLINE
               </p>
               <p className="mt-2 text-sm font-semibold text-mat-text">
-                To be confirmed
+                Varies by graduate programme
               </p>
             </div>
 
@@ -1220,22 +1226,23 @@ function Blog() {
           <div className="mb-4 flex items-center gap-2 text-mat-muted">
             <ShieldIcon className="h-4 w-4 text-emerald-600" />
             <span className="text-[10px] font-medium">
-              Official source verification required
+              Official UC Berkeley application information
             </span>
           </div>
 
-          <button
-            type="button"
-            disabled
-            className="flex w-full cursor-not-allowed items-center justify-center gap-3 rounded-lg bg-slate-300 px-5 py-4 text-[10px] font-bold text-slate-600"
+          <a
+            href="https://mcfscholarsprogram.berkeley.edu/graduate-application-process"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-3 rounded-lg bg-mat-deep px-5 py-4 text-[10px] font-bold text-white transition-all duration-300 hover:bg-blue-800"
           >
-            Application link coming soon
+            View Application Process
             <ArrowRightIcon className="h-4 w-4" />
-          </button>
+          </a>
 
           <p className="mt-3 text-center text-[9px] leading-5 text-mat-muted">
-            Application information will be published after
-            verification by Mat Labs.
+            Applications begin with admission to an eligible
+            UC Berkeley master's programme.
           </p>
 
         </div>
@@ -1245,6 +1252,7 @@ function Blog() {
     </div>
   </div>
 </section>
+
 
 
 {/* ======================================================
