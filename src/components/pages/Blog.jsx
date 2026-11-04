@@ -607,65 +607,198 @@ function Blog() {
 },
 
   {
-    id: 2,
-    title: 'Fellowship opportunity to be announced',
-    category: 'Fellowships',
-    provider: 'Provider to be confirmed',
-    location: 'To be confirmed',
-    deadline: 'To be confirmed',
-    funding: 'To be confirmed',
-    status: 'Under research',
-    description:
-      'Discover fellowship programmes supporting leadership, professional growth and community impact.',
-  },
+  id: 3,
+  title: '2027 Ibrahim Leadership Fellowships',
+  category: 'Fellowships',
+  provider: 'Mo Ibrahim Foundation',
+  location: 'Africa and Geneva, Switzerland',
+  deadline: '20 November 2026',
+  funding: 'US$100,000 stipend',
+  status: 'Applications open',
+
+  description:
+    'The Ibrahim Leadership Fellowships develop outstanding African leaders through practical experience at senior levels of major African and international institutions. The 2027 programme offers three placements at the African Development Bank (AfDB), United Nations Economic Commission for Africa (UNECA), and International Trade Centre (ITC). Fellows gain professional experience, leadership mentorship and exposure to strategic decision-making.',
+
+  eligibility:
+    'Applicants must be African nationals, hold a recognised master’s degree, have at least seven years of relevant professional experience and demonstrate leadership, analytical and strategic planning skills. Applicants must generally be under 40 years of age, or under 45 for women with children. Additional requirements may vary by host institution.',
+
+  duration: '12 months',
+
+  applicationProcess:
+    'Visit the official Mo Ibrahim Foundation fellowship page, review the three host institutions and their individual eligibility requirements, select the relevant placement and follow the application instructions provided by the host institution. Submit all required documents before the deadline.',
+
+  officialUrl:
+    'https://www.moibrahimfoundation.org/',
+
+  applicationUrl:
+    'https://www.moibrahimfoundation.org/',
+
+  sourceUrl:
+    'https://www.moibrahimfoundation.org/',
+
+  lastVerified: '4 November 2026',
+},
+
+{
+  id: 4,
+  title: '2026 Africa Futures Fellowship',
+  category: 'Fellowships',
+  provider: 'Africa Futures Network',
+  location: 'Pan-African; hybrid programme',
+  deadline: 'Not specified on the official page',
+  funding: 'Fully funded fellowship (specific coverage to be confirmed)',
+  status: 'Applications open for 2026 — confirm availability',
+
+  description:
+    'The Africa Futures Fellowship is a three-month Pan-African leadership accelerator designed to equip emerging African leaders and young professionals with the skills, knowledge, networks and tools to drive meaningful change. The programme brings together individuals from different sectors, including technology, entrepreneurship, public service, civil society, academia and media. Fellows participate in leadership development, mentorship, project implementation and continental networking.',
+
+  eligibility:
+    'Applicants must be African nationals aged 25–40 at the time of application. They should be actively engaged in a professional or community development field, demonstrate leadership potential or evidence of impact, show commitment to ethical leadership and African development, be proficient in English, and be available for the full three-month hybrid programme.',
+
+  duration: '3 months (hybrid format)',
+
+  applicationProcess:
+    'Visit the official Africa Futures Fellowship page and use the application link to access the application process. Review the eligibility requirements and programme information before submitting your application. Contact the Africa Futures Network directly to confirm the current application window, funding coverage and any additional requirements.',
+
+  officialUrl:
+    'https://africafuturesnetwork.org/africa-futures-fellowship/',
+
+  applicationUrl:
+    'https://africafuturesnetwork.org/africa-futures-fellowship/',
+
+  sourceUrl:
+    'https://africafuturesnetwork.org/africa-futures-fellowship/',
+
+  lastVerified: '4 November 2026',
+},
   {
-    id: 3,
-    title: 'Internship opportunity to be announced',
-    category: 'Internships',
-    provider: 'Provider to be confirmed',
-    location: 'To be confirmed',
-    deadline: 'To be confirmed',
-    funding: 'To be confirmed',
-    status: 'Under research',
-    description:
-      'We are identifying internship opportunities that help young professionals gain practical experience.',
-  },
+  id: 5,
+  title: 'UNESCO Internship – Priority Africa and External Relations',
+  category: 'Internships',
+  provider: 'United Nations Educational, Scientific and Cultural Organization (UNESCO)',
+  location: 'UNESCO Headquarters, Field Offices and Institutes',
+  deadline: '31 December 2026',
+  funding: 'Unpaid internship; no financial compensation',
+  status: 'Applications open',
+
+  description:
+    'UNESCO is inviting applications for its internship talent pool within the Priority Africa and External Relations Sector. Interns support coordination, research, policy analysis, communication, stakeholder engagement and event organisation. The opportunity provides exposure to international policy-making, cooperation between African countries and international organisations, and UNESCO programmes.',
+
+  eligibility:
+    'Applicants must be at least 20 years old and meet one of the following academic requirements: currently enrolled in the third or final year of a Bachelor’s degree; currently enrolled in a Master’s or PhD programme; or graduated with a Bachelor’s, Master’s or PhD degree within the 12 months preceding the internship agreement. Applicants must have excellent written and spoken English or French, good computer skills, and strong communication and teamwork abilities.',
+
+  duration: '1–6 months',
+
+  applicationProcess:
+    'Apply through the official UNESCO Careers portal. Complete the online application in English or French and provide information about your skills, competencies, experience and interests. Prepare your academic documents and ensure your contact details remain valid for the next six months. Successful applicants enter UNESCO’s internship talent pool and may be contacted by hiring managers when suitable placements become available.',
+
+  officialUrl:
+    'https://careers.unesco.org/job/Multiple-INTERNSHIP-Priority-Africa-and-External-Relations/1348535957/',
+
+  applicationUrl:
+    'https://careers.unesco.org/job/Multiple-INTERNSHIP-Priority-Africa-and-External-Relations/1348535957/',
+
+  sourceUrl:
+    'https://careers.unesco.org/job/Multiple-INTERNSHIP-Priority-Africa-and-External-Relations/1348535957/',
+
+  lastVerified: '4 November 2026',
+},
   {
-    id: 4,
-    title: 'Grant opportunity to be announced',
-    category: 'Grants & Funding',
-    provider: 'Provider to be confirmed',
-    location: 'To be confirmed',
-    deadline: 'To be confirmed',
-    funding: 'To be confirmed',
-    status: 'Under research',
-    description:
-      'Explore upcoming funding opportunities for organisations, innovators and community initiatives.',
-  },
+  id: 6,
+  title: 'The Pollination Project – Daily Grants Program',
+  category: 'Grants & Funding',
+  provider: 'The Pollination Project',
+  location: 'Worldwide, including Uganda',
+  deadline: 'Rolling applications; check the official portal',
+  funding: 'Up to US$500',
+  status: 'Open call – subject to programme availability',
+
+  description:
+    'The Pollination Project provides small seed grants to grassroots changemakers who want to create positive social and environmental change in their communities. Its Daily Grants Program supports early-stage, volunteer-led charitable initiatives by providing flexible funding to help turn community ideas into practical action. Individuals, informal groups and eligible startup not-for-profit organisations can apply from anywhere in the world.',
+
+  eligibility:
+    'Applications are accepted from individuals, groups and startup not-for-profit organisations worldwide. Projects must be volunteer-led, serve charitable community purposes and not generate personal gain. The total project budget must be below US$10,000, and applicants can request up to US$500. Organisations must have an annual budget not exceeding US$50,000 and must not have paid staff. Applicants must be able to receive an international wire transfer. Previous recipients of the Daily Grant are not eligible to receive another one.',
+
+  duration: 'Project implementation period determined by the applicant and grant guidelines',
+
+  applicationProcess:
+    'Visit The Pollination Project application portal and create an account. Select the Daily Grants Program and review the application requirements. Prepare a clear project description, community impact objectives and a realistic budget. Submit the application through the online portal and follow the funder’s instructions. Check the official eligibility guidelines carefully before applying.',
+
+  officialUrl:
+    'https://thepollinationproject.org/',
+
+  applicationUrl:
+    'https://thepollinationproject.smapply.us/',
+
+  sourceUrl:
+    'https://thepollinationproject.org/funding-eligibility/',
+
+  lastVerified: '4 November 2026',
+},
   {
-    id: 5,
-    title: 'Competition opportunity to be announced',
-    category: 'Competitions',
-    provider: 'Provider to be confirmed',
-    location: 'To be confirmed',
-    deadline: 'To be confirmed',
-    funding: 'To be confirmed',
-    status: 'Under research',
-    description:
-      'We are researching competitions that recognise creativity, innovation and emerging talent.',
-  },
+  id: 7,
+  title: 'The African Coding Contest 2026',
+  category: 'Competitions',
+  provider: 'Creative Child Foundation',
+  location: 'Uganda',
+  deadline: '20 November 2026',
+  funding: 'Prizes and awards: check the official competition rulebook',
+  status: 'Registration open',
+
+  description:
+    'The African Coding Contest 2026 is a creative coding competition designed to bring together children, young people, educators and mentors to develop practical solutions through technology. The competition encourages participants to explore computational thinking, creativity, innovation and problem-solving through both plugged and unplugged coding activities. Participants are challenged to create, test, improve and present solutions to real-world problems.',
+
+  eligibility:
+    'The competition has three participation categories: Junior for primary school students, Senior for secondary school students, and Tertiary for university and college students. Team registration is teacher-led. Participants and their teachers should consult the official rulebook for detailed eligibility conditions, team requirements and judging criteria.',
+
+  duration: '2026 competition cycle',
+
+  applicationProcess:
+    'Visit the official Creative Child Foundation coding contest page. Register your team through the teacher-led registration process, download and review the competition rulebook, and follow the instructions for your relevant category. Participants should complete their registration before 20 November 2026.',
+
+  officialUrl:
+    'https://creativechildf.org/coding-contest/',
+
+  applicationUrl:
+    'https://creativechildf.org/coding-contest/',
+
+  sourceUrl:
+    'https://creativechildf.org/coding-contest/',
+
+  lastVerified: '4 November 2026',
+},
   {
-    id: 6,
-    title: 'Career resource to be announced',
-    category: 'Career Resources',
-    provider: 'Mat Labs Editorial Team',
-    location: 'Online',
-    deadline: 'Not applicable',
-    funding: 'Not applicable',
-    status: 'Coming soon',
-    description:
-      'Practical career guidance, professional development resources and tools for your next career step.',
-  },
+  id: 8,
+  title: 'NCDA – Internet Sites for Career Planning',
+  category: 'Career Resources',
+  provider: 'National Career Development Association (NCDA)',
+  location: 'Online – Worldwide',
+  deadline: 'Available anytime',
+  funding: 'Free career planning resources',
+  status: 'Available',
+
+  description:
+    'The National Career Development Association provides a curated collection of credible online resources designed to help individuals make informed career decisions and achieve their professional goals. The resource directory connects users with tools for career exploration, self-assessment, job searching, CV preparation, interview skills, professional development and career planning. It is useful for students preparing to enter the workforce, graduates seeking employment and professionals considering career transitions.',
+
+  eligibility:
+    'Open to students, university graduates, job seekers, working professionals, career changers and anyone interested in career planning. The listed resources are accessible to the public, although individual external platforms may have their own registration requirements or eligibility conditions.',
+
+  duration: 'Self-paced; available throughout the year',
+
+  applicationProcess:
+    'Visit the NCDA career planning resources directory. Browse the available categories, select a resource that matches your career needs and follow the link to the relevant platform. Some resources provide free assessments, career information, CV guidance and job-search support. Check the terms of each external platform before registering.',
+
+  officialUrl:
+    'https://www.ncda.org/aws/ncda/pt/sp/resources',
+
+  applicationUrl:
+    'https://www.ncda.org/aws/ncda/pt/sp/resources',
+
+  sourceUrl:
+    'https://www.ncda.org/aws/ncda/pt/sp/resources',
+
+  lastVerified: '4 November 2026',
+},
 ]
 
   
